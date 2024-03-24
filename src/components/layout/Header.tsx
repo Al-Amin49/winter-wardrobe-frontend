@@ -1,15 +1,20 @@
-import { Menu, X } from "lucide-react";
+import { Menu, Moon, Sun, X } from "lucide-react";
 import { useState } from "react";
 import { Link , NavLink} from "react-router-dom";
 import Container from "../Container";
 import { useAppDispatch, useAppSelector } from "../../redux/hook";
 import { logout } from "../../redux/features/authSlice";
+import { toggleTheme } from "../../redux/features/themeSlice";
 
 const Navbar = () => {
   const { userInfo } = useAppSelector((state) => state.auth);
   // console.log('token', userInfo.data.token)
   // const user= userInfo?.data?.user;
   const dispatch= useAppDispatch()
+  const {darkMode} = useAppSelector((store)=>store.theme);
+  const handleToggleTheme = ()=>{
+    dispatch(toggleTheme())
+  }
   // State to manage the navbar's visibility
   const [nav, setNav] = useState(false);
 
@@ -57,6 +62,15 @@ const handleLogout=()=>{
               <button className="btn btn-primary text-white">Login</button>
             </Link>
           )}
+          <button 
+            onClick={handleToggleTheme}
+              className="rounded-lg backdrop-blur-[2px] p-1 inline-block"
+      
+            >
+              
+             {darkMode ?  <Sun/> :  <Moon size={24} /> }
+              
+            </button>
         </ul>
 
         {/* Mobile Navigation Icon */}

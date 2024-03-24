@@ -4,7 +4,7 @@ import { RootState } from "../store";
 
 // Create baseQuery with prepareHeaders for authorization
 const baseQuery = fetchBaseQuery({
-  baseUrl: 'https://winter-ward.vercel.app/api/v1/',
+  baseUrl: import.meta.env.VITE_APIURL,
   prepareHeaders: (headers, { getState }) => {
     const userInfo = (getState() as RootState).auth.userInfo as { data: { token: string } } | null;
     const token = userInfo?.data.token;

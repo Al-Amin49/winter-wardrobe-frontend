@@ -1,14 +1,16 @@
 import MainLayout from "./components/layout/MainLayout"
 
-
+import { useAppSelector } from "./redux/hook";
 
 function App() {
-
-
+  const { darkMode } = useAppSelector((store) =>store.theme);
   return (
-    <>
-      <MainLayout/>
-    </>
+    <div
+    className={` min-h-screen w-full ${darkMode ? "bg-black text-white" : ""}`}
+  >
+    <MainLayout />
+  </div>
+
   )
 }
 
