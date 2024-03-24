@@ -1,0 +1,45 @@
+[
+    {
+      "id": 1,
+      "title": "Winter Clothes Distribution Drive",
+      "date": "2024-03-20",
+      "location": "City Park",
+      "description": "Join us for a winter clothes distribution drive at City Park. Help us provide warm clothing to those in need during the cold season.",
+      "images": [
+        "https://via.placeholder.com/500",
+        "https://via.placeholder.com/500",
+        "https://via.placeholder.com/500",
+        "https://via.placeholder.com/500",
+        "https://via.placeholder.com/500"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Community Charity Event",
+      "date": "2024-03-25",
+      "location": "Community Center",
+      "description": "Be part of our community charity event at the Community Center. We'll be collecting donations and distributing winter clothes to those in need.",
+      "images": [
+        "https://via.placeholder.com/500",
+        "https://via.placeholder.com/500",
+        "https://via.placeholder.com/500",
+        "https://via.placeholder.com/500",
+        "https://via.placeholder.com/500"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Warmth for Winter Campaign Kickoff",
+      "date": "2024-04-05",
+      "location": "Downtown Square",
+      "description": "Join us as we kick off our Warmth for Winter campaign at Downtown Square. Together, we can make a difference and ensure everyone stays warm this winter.",
+      "images": [
+        "https://via.placeholder.com/500",
+        "https://via.placeholder.com/500",
+        "https://via.placeholder.com/500",
+        "https://via.placeholder.com/500",
+        "https://via.placeholder.com/500"
+      ]
+    }
+  ]
+  
