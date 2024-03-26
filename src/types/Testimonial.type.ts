@@ -1,9 +1,8 @@
-type TTestimonialUser={
-    username: string;
-  }
+
   export type TTestimonial={
-    _id:string,
-    user:TTestimonialUser,
+    _id?:string,
+    username:string,
     message:string,
-    location:string
+    location:string,
+    rating:number
   }

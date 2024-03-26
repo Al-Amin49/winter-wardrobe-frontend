@@ -10,6 +10,7 @@ import { toast } from "react-toastify";
 import { useAppDispatch } from "../../redux/hook";
 const Login = () => {
   const [loginData, {isLoading}]= useLoginMutation();
+  // const {darkmode}= useAppSelector((store)=>store.theme)
    const navigate=useNavigate();
    const dispatch = useAppDispatch();
 
@@ -67,7 +68,7 @@ const Login = () => {
             type="email"
             placeholder="Email"
             {...register("email")}
-            className="input input-bordered w-full max-w-xs my-2"
+            className='input input-bordered w-full max-w-xs my-2'
           />
           <input
             type="password"

@@ -1,4 +1,3 @@
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -8,14 +7,15 @@ import Container from "../../components/Container";
 import { useGetAllTestimonialQuery } from "../../redux/api/testimonialApi";
 import Loading from "../../components/Loading";
 import { TTestimonial } from "../../types";
+import { Rating } from '@smastrom/react-rating'
 
+import '@smastrom/react-rating/style.css'
 
 const Testimonials = () => {
-  const {data, isLoading}= useGetAllTestimonialQuery("");
-  console.log(' testimonial data', data?.data)
+  const { data, isLoading } = useGetAllTestimonialQuery("");
 
-    if(isLoading){
-    return <Loading/>
+  if (isLoading) {
+    return <Loading />;
   }
   return (
     <>
@@ -37,14 +37,25 @@ const Testimonials = () => {
           modules={[Autoplay, Pagination, Navigation]}
           className="mySwiper"
         >
-          {data?.data.map((testimonial:TTestimonial) => (
+          {data?.data.map((testimonial: TTestimonial) => (
             <SwiperSlide key={testimonial._id}>
               {/* You might want to adjust this part depending on the structure of your testimonials data */}
               <div className="bg-gradient-to-r from-green-500 to-black text-white p-6 mb-6">
                 <div className=" flex flex-col justify-center items-center">
-                  <p className="text-xl font-bold text-secondary ">{testimonial.user.username}</p>
-                  <p className="text-lg font-medium my-2">{testimonial.location}</p>
-                  <p className="text-base text-gray-300 ">{testimonial.message}</p>
+                  <p className="text-xl font-bold text-secondary ">
+                    {testimonial.username}
+                  </p>
+                  <p className="text-lg font-medium my-2">
+                    {testimonial.location}
+                  </p>
+                  <Rating
+                    style={{ maxWidth: 180 }}
+                    value={testimonial.rating}
+                    readOnly
+                  />
+                  <p className="text-base text-gray-300 ">
+                    {testimonial.message}
+                  </p>
                 </div>
               </div>
             </SwiperSlide>
