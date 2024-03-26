@@ -1,40 +1,22 @@
-// Import Swiper React components
+
 import { Swiper, SwiperSlide } from "swiper/react";
-import axios from "axios";
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-
-// import './styles.css';
-
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import Container from "../../components/Container";
-import { useEffect, useState } from "react";
+import { useGetAllTestimonialQuery } from "../../redux/api/testimonialApi";
+import Loading from "../../components/Loading";
+import { TTestimonial } from "../../types";
 
-type TTestimonial={
-  _id:string,
-  name:string,
-  details:string,
-  image:string
-}
+
 const Testimonials = () => {
-  const [testimonials, setTestimonials] = useState([]);
+  const {data, isLoading}= useGetAllTestimonialQuery("");
+  console.log(' testimonial data', data?.data)
 
-  
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        
-        const response = await axios.get("testimonials.json");
-        setTestimonials(response.data);
-      } catch (error) {
-        console.error("Error fetching testimonials data:", error);
-      }
-    };
-
-    fetchData();
-  }, []);
+    if(isLoading){
+    return <Loading/>
+  }
   return (
     <>
       <Container>
@@ -55,18 +37,14 @@ const Testimonials = () => {
           modules={[Autoplay, Pagination, Navigation]}
           className="mySwiper"
         >
-          {testimonials.map((testimonial:TTestimonial) => (
+          {data?.data.map((testimonial:TTestimonial) => (
             <SwiperSlide key={testimonial._id}>
               {/* You might want to adjust this part depending on the structure of your testimonials data */}
-              <div className=" grid  grid-cols-1 lg:grid-cols-2 gap-6 place-items-center ">
+              <div className="bg-gradient-to-r from-green-500 to-black text-white p-6 mb-6">
                 <div className=" flex flex-col justify-center items-center">
-                  <p className="text-xl font-bold ">{testimonial.name}</p>
-                  <p>{testimonial.details}</p>
-                </div>
-                <div className="">
-                  <div >
-                    <img src={testimonial.image}  className=" w-full rounded-[50%]"  />
-                  </div>
+                  <p className="text-xl font-bold text-secondary ">{testimonial.user.username}</p>
+                  <p className="text-lg font-medium my-2">{testimonial.location}</p>
+                  <p className="text-base text-gray-300 ">{testimonial.message}</p>
                 </div>
               </div>
             </SwiperSlide>

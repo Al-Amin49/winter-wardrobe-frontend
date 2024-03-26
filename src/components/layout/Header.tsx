@@ -39,7 +39,7 @@ const handleLogout=()=>{
           {" "}
           <h1 className=" text-2xl text-[white]">Winter Wardrobe</h1>
         </Link>
-
+        
         {/* Desktop Navigation */}
         <ul className="hidden md:flex space-x-8 md:items-center">
           <NavLink to="/" className="">
@@ -62,7 +62,10 @@ const handleLogout=()=>{
               <button className="btn btn-primary text-white">Login</button>
             </Link>
           )}
-          <button 
+         
+        </ul>
+        {/* TOGGLE THEME */}
+        <button 
             onClick={handleToggleTheme}
               className="rounded-lg backdrop-blur-[2px] p-1 inline-block"
       
@@ -71,7 +74,6 @@ const handleLogout=()=>{
              {darkMode ?  <Sun/> :  <Moon size={24} /> }
               
             </button>
-        </ul>
 
         {/* Mobile Navigation Icon */}
         <div onClick={handleNav} className="block md:hidden">

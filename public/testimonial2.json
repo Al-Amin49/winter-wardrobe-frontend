@@ -1,0 +1,51 @@
+[
+    {
+      "donorName": "James Lee",
+      "donationLocation": "Chicago, USA",
+      "testimonialTitle": "A Heartwarming Experience",
+      "testimonialMessage": "Donating winter clothes to those in need through this platform has been an incredibly heartwarming experience for me. Knowing that I can make a difference is truly fulfilling.",
+      "donationDate": "2023-12-15",
+      "rating": 5
+    },
+    {
+      "donorName": "Samantha Green",
+      "donationLocation": "Berlin, Germany",
+      "testimonialTitle": "Easy and Rewarding",
+      "testimonialMessage": "The process of donating clothes on this website was so easy and hassle-free. It's rewarding to see the impact of my donation on someone's life. Highly recommend to others!",
+      "donationDate": "2024-01-10",
+      "rating": 5
+    },
+    {
+      "donorName": "Carlos Rodríguez",
+      "donationLocation": "Madrid, Spain",
+      "testimonialTitle": "Making a Difference",
+      "testimonialMessage": "I've been looking for a way to help those less fortunate during the winter season, and this platform was the perfect opportunity. It feels great to make a difference!",
+      "donationDate": "2024-02-05",
+      "rating": 4
+    },
+    {
+      "donorName": "Aisha Malik",
+      "donationLocation": "Mumbai, India",
+      "testimonialTitle": "A Rewarding Experience",
+      "testimonialMessage": "Donating winter clothes for the first time was a rewarding experience. The joy of giving is unmatched, and I plan to continue supporting this cause.",
+      "donationDate": "2024-02-20",
+      "rating": 5
+    },
+    {
+      "donorName": "Henry Wu",
+      "donationLocation": "Beijing, China",
+      "testimonialTitle": "Inspiring Action",
+      "testimonialMessage": "This platform made it incredibly easy to donate my extra winter clothes. I'm inspired by the collective action we can take to support those in need.",
+      "donationDate": "2023-11-30",
+      "rating": 5
+    },
+    {
+      "donorName": "Claire Dubois",
+      "donationLocation": "Paris, France",
+      "testimonialTitle": "Unity in Giving",
+      "testimonialMessage": "Seeing the community come together to donate winter clothes through this website has been uplifting. It's a reminder of the good we can do when we unite for a cause.",
+      "donationDate": "2024-03-15",
+      "rating": 5
+    }
+  ]
+  
