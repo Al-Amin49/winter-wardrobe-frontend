@@ -27,8 +27,8 @@ const PostCard = () => {
         <div key={post._id} className="card p-6 m-10 border shadow-lg">
           <div className="card-body">
             <div className="flex items-center space-x-2 ">
-              <img src={post.author.profile} className="h-8" alt="" />
-              <p className="font-bold">{post.author.username}</p>
+              <img src={post.author?.profile} className="h-8" alt="" />
+              <p className="font-bold">{post.author?.username}</p>
             </div>
             <p>{post.content}</p>
             <div className="flex items-center space-x-2">

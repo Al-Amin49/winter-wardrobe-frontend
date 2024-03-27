@@ -2,6 +2,7 @@ import { Home } from 'lucide-react';
 import {useAppSelector} from '../../redux/hook'
 import PostCard from './PostCard';
 import { Link } from 'react-router-dom';
+import AddPost from './AddPost';
 
 const CommunityPost = () => {
     const {userInfo}= useAppSelector((state)=>state.auth);
@@ -16,7 +17,7 @@ const CommunityPost = () => {
        </div>
         <h2 className="text-center text-primary py-2 text-lg lg:2xl font-extrabold">Spread Your Gratitude, Spark Inspiration</h2>
      <div className="flex justify-between items-center ">
-     <button className='btn btn-primary'>Add Post </button>
+    <AddPost/>
      </div>
 
      
