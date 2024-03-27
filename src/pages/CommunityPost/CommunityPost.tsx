@@ -4,7 +4,6 @@ import PostCard from './PostCard';
 import { Link } from 'react-router-dom';
 
 const CommunityPost = () => {
-  
     const {userInfo}= useAppSelector((state)=>state.auth);
     const user= userInfo?.data.user
   return (
