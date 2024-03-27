@@ -10,6 +10,7 @@ import AdminHome from "../pages/Dashboard/AdminHome";
 import Clothes from "../pages/Dashboard/Clothe/Clothes";
 import AddClothe from "../pages/Dashboard/Clothe/AddClothe";
 import Testimonials from "../pages/Dashboard/Testimonials/Testimonials";
+import Community from "../pages/Community/Community";
 
 export const router = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ export const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register />,
+      },
+      {
+        path: "/community",
+        element: <Community />,
       },
     ],
   },
