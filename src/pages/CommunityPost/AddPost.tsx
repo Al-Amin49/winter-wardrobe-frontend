@@ -31,11 +31,11 @@ const AddPost = () => {
   };
     return (
         <>
- <button onClick={openModal} className="btn btn-primary text-white font-bold">
+ <button onClick={openModal} className="btn btn-xs  lg:btn-md btn-primary text-white font-bold">
         Add Post
       </button>
       <dialog id="my_modal_1" className="modal">
-        <div className="modal-box">
+        <div className="modal-box mx-auto">
           <form method="dialog">
             {/* if there is a button in form, it will close the modal */}
             <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-0 text-primary">
@@ -49,12 +49,12 @@ const AddPost = () => {
             onSubmit={handleSubmit(onSubmit)}
             className="flex flex-col gap-2 w-full max-w-xs lg:max-w-lg"
           >
-            <div className="">
+            <div className=" mt-4">
             
               <textarea
                 placeholder="Write your thought"
                 {...register("content")}
-                className="input input-bordered w-full max-w-xs"
+                className="textarea textarea-bordered textarea-lg w-full max-w-xs "
               />
              
               

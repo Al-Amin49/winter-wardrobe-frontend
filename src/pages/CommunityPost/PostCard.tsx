@@ -16,7 +16,6 @@ type TCommunityPost = {
 const PostCard = () => {
   const { data, isLoading } = useGetAllCommunityPostQuery("");
 
-  console.log("data", data?.data);
 
   if (isLoading) {
     return <Loading />;
@@ -30,7 +29,7 @@ const PostCard = () => {
               <img src={post.author?.profile} className="h-8" alt="" />
               <p className="font-bold">{post.author?.username}</p>
             </div>
-            <p>{post.content}</p>
+            <p className="text-xs lg:text-base">{post.content}</p>
             <div className="flex items-center space-x-2">
               <button>
                 <Heart />
