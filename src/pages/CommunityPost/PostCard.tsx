@@ -1,4 +1,4 @@
-import { Heart } from "lucide-react";
+import { Heart, MessageCircle } from "lucide-react";
 import Loading from "../../components/Loading";
 import { useGetAllCommunityPostQuery } from "../../redux/api/communityPostApi";
 
@@ -10,6 +10,7 @@ type TCommunityUser = {
 type TCommunityPost = {
   _id: string;
   content: string;
+  comments: string[],
   author: TCommunityUser;
 };
 
@@ -34,7 +35,13 @@ const PostCard = () => {
               <button>
                 <Heart />
               </button>
-              <button>Comment</button>
+              <div className="tooltip" data-tip="See Comments">
+              <span
+              className="flex items-center font-bold"
+              >
+                <MessageCircle /> {post?.comments.length} </span>
+                 </div>
+             
             </div>
           </div>
         </div>

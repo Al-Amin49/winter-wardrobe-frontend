@@ -11,6 +11,7 @@ import Clothes from "../pages/Dashboard/Clothe/Clothes";
 import AddClothe from "../pages/Dashboard/Clothe/AddClothe";
 import Testimonials from "../pages/Dashboard/Testimonials/Testimonials";
 import CommunityPost from "../pages/CommunityPost/CommunityPost";
+import Volunteer from "../pages/Volunteer/Volunteer";
 
 export const router = createBrowserRouter([
   {
@@ -41,6 +42,10 @@ export const router = createBrowserRouter([
         path: "/community",
         element: <CommunityPost />,
       },
+      {
+        path:'/volunteer',
+        element:<Volunteer/>
+      }
     ],
   },
 

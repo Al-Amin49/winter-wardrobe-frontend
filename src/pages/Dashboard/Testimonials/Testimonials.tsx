@@ -7,9 +7,10 @@ import Loading from "../../../components/Loading";
 
 const Testimonials = () => {
   const [postData, { isLoading }] = usePostTestimonialMutation();
-  const userInfo = useAppSelector((state) => state.auth.userInfo);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const userInfo:any = useAppSelector((state) => state.auth.userInfo);
   
-  const { user } = userInfo ? userInfo.data  : null
+  const user = userInfo?.data.user
   const { register, handleSubmit, reset } = useForm<TTestimonial>();
 
   const onSubmit: SubmitHandler<TTestimonial> = (data) => {

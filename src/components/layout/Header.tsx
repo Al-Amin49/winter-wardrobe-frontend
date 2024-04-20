@@ -49,11 +49,15 @@ const handleLogout=()=>{
             All Clothes
           </NavLink>
           <NavLink to="/community" className="">
-           Community
-          </NavLink>
-          {userInfo && <NavLink to="/dashboard/admin-home" className="">
+          Community
+         </NavLink>
+          {userInfo &&
+         <>
+           <NavLink to="/dashboard/admin-home" className="">
            Dashboard
-          </NavLink>}
+          </NavLink>
+         </>
+          }
           {userInfo ? (
             <Link to="/login">
               {" "}
