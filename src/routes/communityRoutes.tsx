@@ -1,3 +1,4 @@
+import PostDetails from "../pages/CommunityPost/PostDetails";
 import CommunityDashboard from "../components/layout/CommunityDashboard";
 import CommunityPost from "../pages/CommunityPost/CommunityPost";
 
@@ -9,6 +10,10 @@ export const communityRoutes = [
       {
         index:true,
         element: <CommunityPost />,
+      },
+      {
+        path:":id",
+        element: <PostDetails />,
       },
     ]
   }

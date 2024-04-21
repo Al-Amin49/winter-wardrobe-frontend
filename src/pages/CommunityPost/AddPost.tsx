@@ -32,7 +32,22 @@ const AddPost = () => {
     return (
         <>
  <button onClick={openModal} className="btn btn-xs  lg:btn-md btn-primary text-white font-bold">
-        Add Post
+        {/* Conditional rendering based on screen size */}
+        <span className="hidden lg:inline">Add Post</span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-6 w-6 lg:hidden inline"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+          />
+        </svg>
       </button>
       <dialog id="my_modal_1" className="modal">
         <div className="modal-box mx-auto">
