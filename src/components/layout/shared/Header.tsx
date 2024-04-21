@@ -1,20 +1,20 @@
 import { Menu, Moon, Sun, X } from "lucide-react";
 import { useState } from "react";
-import { Link , NavLink} from "react-router-dom";
-import Container from "../Container";
-import { useAppDispatch, useAppSelector } from "../../redux/hook";
-import { logout } from "../../redux/features/authSlice";
-import { toggleTheme } from "../../redux/features/themeSlice";
+import { Link, NavLink } from "react-router-dom";
+import Container from "../../Container";
+import { useAppDispatch, useAppSelector } from "../../../redux/hook";
+import { logout } from "../../../redux/features/authSlice";
+import { toggleTheme } from "../../../redux/features/themeSlice";
 
 const Navbar = () => {
   const { userInfo } = useAppSelector((state) => state.auth);
   // console.log('token', userInfo.data.token)
   // const user= userInfo?.data?.user;
-  const dispatch= useAppDispatch()
-  const {darkMode} = useAppSelector((store)=>store.theme);
-  const handleToggleTheme = ()=>{
-    dispatch(toggleTheme())
-  }
+  const dispatch = useAppDispatch();
+  const { darkMode } = useAppSelector((store) => store.theme);
+  const handleToggleTheme = () => {
+    dispatch(toggleTheme());
+  };
   // State to manage the navbar's visibility
   const [nav, setNav] = useState(false);
 
@@ -26,10 +26,10 @@ const Navbar = () => {
   const handleNav = () => {
     setNav(!nav);
   };
-//handleLogout
-const handleLogout=()=>{
-  dispatch(logout())
-}
+  //handleLogout
+  const handleLogout = () => {
+    dispatch(logout());
+  };
 
   return (
     <Container>
@@ -39,7 +39,7 @@ const handleLogout=()=>{
           {" "}
           <h1 className=" text-2xl text-[white]">Winter Wardrobe</h1>
         </Link>
-        
+
         {/* Desktop Navigation */}
         <ul className="hidden md:flex space-x-8 md:items-center">
           <NavLink to="/" className="">
@@ -49,19 +49,24 @@ const handleLogout=()=>{
             All Clothes
           </NavLink>
           <NavLink to="/community" className="">
-          Community
-         </NavLink>
-          {userInfo &&
-         <>
-           <NavLink to="/dashboard/admin-home" className="">
-           Dashboard
+            Community
           </NavLink>
-         </>
-          }
+          {userInfo && (
+            <>
+              <NavLink to="/dashboard/admin-home" className="">
+                Dashboard
+              </NavLink>
+            </>
+          )}
           {userInfo ? (
             <Link to="/login">
               {" "}
-              <button onClick={handleLogout} className="btn btn-primary text-white">Logout</button>
+              <button
+                onClick={handleLogout}
+                className="btn btn-primary text-white"
+              >
+                Logout
+              </button>
             </Link>
           ) : (
             <Link to="/login">
@@ -69,18 +74,14 @@ const handleLogout=()=>{
               <button className="btn btn-primary text-white">Login</button>
             </Link>
           )}
-         
         </ul>
         {/* TOGGLE THEME */}
-        <button 
-            onClick={handleToggleTheme}
-              className="rounded-lg backdrop-blur-[2px] p-1 inline-block"
-      
-            >
-              
-             {darkMode ?  <Sun/> :  <Moon size={24} /> }
-              
-            </button>
+        <button
+          onClick={handleToggleTheme}
+          className="rounded-lg backdrop-blur-[2px] p-1 inline-block"
+        >
+          {darkMode ? <Sun /> : <Moon size={24} />}
+        </button>
 
         {/* Mobile Navigation Icon */}
         <div onClick={handleNav} className="block md:hidden">

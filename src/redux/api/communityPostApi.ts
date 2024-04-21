@@ -10,6 +10,13 @@ const communityPostApi= baseApi.injectEndpoints({
             }),
             providesTags:['communitypost']
         }),
+        getSinglePost:builder.query({
+            query:(id)=>({
+                url:`/communities/${id}`,
+                method:"GET"
+            }),
+            providesTags:['communitypost']
+        }),
         addCommunityPost:builder.mutation({
             query:(body)=>({
                 url:'/communities',
@@ -23,5 +30,6 @@ const communityPostApi= baseApi.injectEndpoints({
 
 export const{
     useAddCommunityPostMutation,
-    useGetAllCommunityPostQuery
+    useGetAllCommunityPostQuery,
+    useGetSinglePostQuery
 } = communityPostApi;
