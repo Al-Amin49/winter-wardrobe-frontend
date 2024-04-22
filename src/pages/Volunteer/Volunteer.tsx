@@ -12,6 +12,7 @@ import "swiper/css/pagination";
 // import required modules
 import { EffectCoverflow, Pagination } from "swiper/modules";
 import VolunteerCard from "./VolunteerCard";
+import VolunteerSignUp from "./VolunteerSignUp";
 const Volunteer = () => {
   // Volunteer animation options
   const options = {
@@ -83,6 +84,9 @@ const Volunteer = () => {
           </div>
         </div>
       </div>
+      {/* Volunteer sign up */}
+
+      <VolunteerSignUp/>
     </Container>
   );
 };
