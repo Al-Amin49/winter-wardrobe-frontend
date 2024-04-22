@@ -42,7 +42,7 @@ export const router = createBrowserRouter([
     ],
   },
 
-  //dashboard routes
+  // dashboard routes
   ...dashboardRoutes,
   
   //community routes

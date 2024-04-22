@@ -32,8 +32,8 @@ const Navbar = () => {
   };
 
   return (
-    <Container>
-      <div className="z-10 absolute  font-bold  w-full max-w-screen-xl bg-gradient-to-r from-green-500 to-black h-16 flex justify-between items-center   px-4 text-white">
+    <Container >
+      <div className="z-10 absolute   font-bold  w-full max-w-screen-xl bg-gradient-to-r from-green-500 to-black h-16 flex justify-between items-center   px-4 text-white ">
         {/* Logo */}
         <Link to="/">
           {" "}
@@ -45,11 +45,14 @@ const Navbar = () => {
           <NavLink to="/" className="">
             Home
           </NavLink>
-          <NavLink to="/all-clothe" className="">
+          <NavLink to="/all-clothe" >
             All Clothes
           </NavLink>
-          <NavLink to="/community" className="">
+          <NavLink to="/community">
             Community
+          </NavLink>
+          <NavLink to="/Volunteer" >
+            Volunteer
           </NavLink>
           {userInfo && (
             <>
@@ -107,9 +110,35 @@ const Navbar = () => {
           <NavLink onClick={closeNav} to="/all-clothe">
             All Winter Clothes
           </NavLink>
-          <button className="w-1/2 lg:w-full " onClick={closeNav}>
-            Login
-          </button>
+          <NavLink onClick={closeNav}  to="/community">
+            Community
+          </NavLink>
+          <NavLink  onClick={closeNav}  to="/Volunteer" >
+            Volunteer
+          </NavLink>
+          {userInfo && (
+            <>
+              <NavLink onClick={closeNav}  to="/dashboard/admin-home" className="">
+                Dashboard
+              </NavLink>
+            </>
+          )}
+          {userInfo ? (
+            <Link to="/login">
+              {" "}
+              <button
+                onClick={handleLogout}
+                className="btn btn-primary text-white"
+              >
+                Logout
+              </button>
+            </Link>
+          ) : (
+            <Link to="/login">
+              {" "}
+              <button className="btn btn-primary text-white">Login</button>
+            </Link>
+          )}
         </ul>
       </div>
     </Container>

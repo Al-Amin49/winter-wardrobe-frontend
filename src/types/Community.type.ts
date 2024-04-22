@@ -5,6 +5,7 @@ export type TCommunityUser = {
   };
   
 export type TCommunityComment={
+    _id:string,
   author:TCommunityUser,
   content:string
   }
