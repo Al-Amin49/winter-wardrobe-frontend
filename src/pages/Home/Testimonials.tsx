@@ -6,8 +6,9 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import Container from "../../components/Container";
 import { useGetAllTestimonialQuery } from "../../redux/api/testimonialApi";
 import Loading from "../../components/Loading";
-import { TTestimonial } from "../../types";
+import Subline from '../../components/Subline';
 import { Rating } from '@smastrom/react-rating'
+import {TTestimonial} from '../../types';
 
 import '@smastrom/react-rating/style.css'
 
@@ -20,9 +21,12 @@ const Testimonials = () => {
   return (
     <>
       <Container>
-        <h3 className="text-3xl font-bol text-primary text-center pt-20 pb-5">
+        <h3 className="text-3xl font-bol text-primary text-center pt-20 ">
           Testimonials
         </h3>
+        <div className='pb-5'>
+      <Subline bgPrimary={false}/>
+      </div>
         <Swiper
           spaceBetween={30}
           centeredSlides={true}

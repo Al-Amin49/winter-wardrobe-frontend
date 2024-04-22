@@ -1,8 +1,14 @@
+
+import Subline from '../../components/Subline';
 import about from '../../assets/img/about.jpeg';
 const AboutUs = () => {
     return (
         <div>
             <h3 className="text-3xl text-primary pt-20 text-center font-bold">About Us</h3>
+            <div className='pb-16'>
+      <Subline bgPrimary={false}/>
+      </div>
+            
           <div className="container mx-auto px-4 py-8">
   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
     {/* Text Column */}

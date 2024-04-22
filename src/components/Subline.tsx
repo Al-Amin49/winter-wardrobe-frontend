@@ -1,11 +1,18 @@
 import { motion } from "framer-motion";
-const Subline = () => {
+
+type TSubline={
+    bgPrimary:boolean
+}
+const Subline = ({ bgPrimary }:TSubline) => {
+  
+  const conditionalClass = bgPrimary ? "bg-primary" : "bg-secondary";
+
   return (
     <>
       <motion.div
-        className="text-primary bg-primary h-2 rounded mt-2 w-[20%] mx-auto"
-        initial={{  x: "-10%" }}
-        animate={{  x: "10%" }}
+        className={`${conditionalClass} h-2 rounded mt-2 w-[10%] mx-auto`} 
+        initial={{ x: "-10%" }}
+        animate={{ x: "10%" }}
         transition={{
           repeat: Infinity,
           duration: 1,
