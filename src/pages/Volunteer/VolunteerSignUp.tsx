@@ -4,6 +4,9 @@ import { useLottie } from "lottie-react";
 import volunteerSignUp from "../../utils/lottie/volunteerSignUp.json";
 import { SubmitHandler, useForm } from "react-hook-form";
 import Subline from "../../components/Subline";
+import { useAddVolunteerMutation } from "../../redux/api/volunteerApi";
+import Loading from "../../components/Loading";
+import { toast } from "react-toastify";
 
 type TVolunteerSignUp={
     name:string,
@@ -15,6 +18,7 @@ type TVolunteerSignUp={
 }
 const VolunteerSignUp = () => {
   const { register, handleSubmit } = useForm<TVolunteerSignUp>();
+  const [addVolunteer, {isLoading}]= useAddVolunteerMutation()
   const [availability, setAvailability] =useState({
     weekdays: false,
     weekends: false,
@@ -23,6 +27,8 @@ const VolunteerSignUp = () => {
 
   const onSubmit:SubmitHandler<TVolunteerSignUp> = (data:TVolunteerSignUp) => {
     console.log(data);
+    addVolunteer(data);
+    toast.success('Register succesfully')
   };
 
   const handleAvailabilityChange = (e:React.ChangeEvent<HTMLInputElement>) => {
@@ -43,6 +49,9 @@ const VolunteerSignUp = () => {
     height: 400,
   });
 
+  if(isLoading){
+    return <Loading/>
+  }
   return (
     <Container className="pb-4">
       <h3 className="text-2xl text-secondary font-bold text-center pt-16 ">

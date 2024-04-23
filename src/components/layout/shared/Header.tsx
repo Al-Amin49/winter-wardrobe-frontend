@@ -54,6 +54,9 @@ const Navbar = () => {
           <NavLink to="/Volunteer" >
             Volunteer
           </NavLink>
+          <NavLink to="/about-us" >
+            About Us
+          </NavLink>
           {userInfo && (
             <>
               <NavLink to="/dashboard/admin-home" className="">
@@ -112,6 +115,9 @@ const Navbar = () => {
           </NavLink>
           <NavLink onClick={closeNav}  to="/community">
             Community
+          </NavLink>
+          <NavLink onClick={closeNav}  to="/about-us">
+            About Us
           </NavLink>
           <NavLink  onClick={closeNav}  to="/Volunteer" >
             Volunteer
