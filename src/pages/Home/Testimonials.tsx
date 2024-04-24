@@ -39,14 +39,14 @@ const Testimonials = () => {
           }}
           navigation={true}
           modules={[Autoplay, Pagination, Navigation]}
-          className="mySwiper"
+          className="mySwiper "
         >
           {data?.data.map((testimonial: TTestimonial) => (
             <SwiperSlide key={testimonial._id}>
               {/* You might want to adjust this part depending on the structure of your testimonials data */}
-              <div className="bg-gradient-to-r from-green-500 to-black text-white p-6 mb-6">
+              <div className="bg-orange-400  text-white p-6 mb-6">
                 <div className=" flex flex-col justify-center items-center">
-                  <p className="text-xl font-bold text-secondary ">
+                  <p className="text-xl font-bold text-primary ">
                     {testimonial.username}
                   </p>
                   <p className="text-lg font-medium my-2">

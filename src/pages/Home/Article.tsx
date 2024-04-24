@@ -27,7 +27,7 @@ type TArticle={
 
   return (
     <div className="container mx-auto py-8">
-      <h2 className="text-3xl text-center font-bold text-primary pt-16">Read Our Latest Articles on Winter Clothes Distribution</h2>
+      <h2 className="text-xl md:text-3xl text-center font-bold text-primary pt-16">Read Our Latest Articles on Winter Clothes Distribution</h2>
       <div className='pb-16'>
       <Subline bgPrimary={false}/>
       </div>

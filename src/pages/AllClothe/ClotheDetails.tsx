@@ -14,12 +14,12 @@ const ClotheDetails = () => {
 
   return (
     <Container>
-      <div className="pt-20">
+      <div className="pt-20 pb-5">
         <div className=" flex  flex-col lg:flex-row justify-center m-4 lg:m-0 lg:justify-around items-center ">
           <div>
-            <img src={image} alt="" />
+            <img src={image} className="w-[70%]" alt="" />
           </div>
-          <div className="border shadow-lg p-16">
+          <div className="border shadow-lg p-4">
             <h2 className="space-x-2">
               <span className="text-primary font-bold text-3xl">{title}</span>
               <div className="badge badge-secondary">{category}</div>
