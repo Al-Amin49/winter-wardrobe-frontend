@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Home } from 'lucide-react';
 import { useAppSelector } from "../../../redux/hook";
 import AddPost from "../../../pages/CommunityPost/AddPost";
+import Subline from "../../../components/Subline";
 
 
 
@@ -22,14 +23,21 @@ const CommunityNav = () => {
         </>
       }
        </div>
-        <h2 className="text-center hidden lg:block  text-primary py-2 text-base md:text-lg lg:text-2xl font-extrabold">Spread Your Gratitude, Spark Inspiration</h2>
+        <div className="hidden md:block  py-2 ">
+        <h2 className="text-center text-primary text-2xl font-extrabold">Spread Your Gratitude, Spark Inspiration</h2>
+        <Subline  bgPrimary={false}/>
+        </div>
      <div className="flex justify-between items-center ">
     <AddPost/>
      </div>
 
      
     </div> 
-    <h2 className="text-center lg:hidden text-primary py-2 text-base font-extrabold my-10">Spread Your Gratitude, Spark Inspiration</h2>
+  <div className="lg:hidden">
+  <h2 className="text-center  text-primary py-2 text-base font-extrabold mt-10">Spread Your Gratitude, Spark Inspiration</h2>
+  <Subline bgPrimary={false} />
+  </div>
+    
         </>
     );
 };
