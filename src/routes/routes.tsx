@@ -10,6 +10,7 @@ import { dashboardRoutes } from "./dashboardRoutes";
 import { communityRoutes } from "./communityRoutes";
 
 import AboutUsPage from "../pages/AboutUsPage/AboutUsPage";
+import Leaderboard from "../pages/Leaderboard/Leaderboard";
 
 //main routes
 export const router = createBrowserRouter([
@@ -40,6 +41,10 @@ export const router = createBrowserRouter([
       {
         path:'/volunteer',
         element:<Volunteer/>
+      },
+      {
+        path:'/leaderboard',
+        element:<Leaderboard/>
       },
       {
         path:'/about-us',

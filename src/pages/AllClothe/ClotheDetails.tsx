@@ -3,6 +3,7 @@ import { useGetSingleClothesQuery } from "../../redux/api/ClotheApi";
 import { useParams } from "react-router-dom";
 import Loading from '../../components/Loading';
 import { TClothe } from "../../types";
+import DonateModal from "../../components/Donate/DonateModal";
 const ClotheDetails = () => {
   const { id } = useParams();
   const { data, isLoading } = useGetSingleClothesQuery(id);
@@ -37,9 +38,7 @@ const ClotheDetails = () => {
               ))}
             </span>
             <div className="text-center pt-10">
-              <button className="font-bold btn btn-primary text-white">
-                Donate Now
-              </button>
+              <DonateModal/>
             </div>
           </div>
         </div>

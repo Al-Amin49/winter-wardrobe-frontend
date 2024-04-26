@@ -54,6 +54,9 @@ const Navbar = () => {
           <NavLink to="/Volunteer" >
             Volunteer
           </NavLink>
+          <NavLink to="/leaderboard" >
+            Leaderboard
+          </NavLink>
           <NavLink to="/about-us" >
             About Us
           </NavLink>
@@ -135,6 +138,7 @@ const Navbar = () => {
               <button
                 onClick={handleLogout}
                 className="btn btn-primary text-white"
+
               >
                 Logout
               </button>
@@ -142,7 +146,7 @@ const Navbar = () => {
           ) : (
             <Link to="/login">
               {" "}
-              <button className="btn btn-primary text-white">Login</button>
+              <button onClick={closeNav} className="btn btn-primary text-white">Login</button>
             </Link>
           )}
         </ul>

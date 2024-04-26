@@ -1,5 +1,5 @@
 import Dashboard from "../components/layout/Dashboard";
-import AdminHome from "../pages/Dashboard/AdminHome";
+import AdminHome from "../pages/Dashboard/AdminHome/AdminHome";
 import Clothes from "../pages/Dashboard/Clothe/Clothes";
 import AddClothe from "../pages/Dashboard/Clothe/AddClothe";
 import Testimonials from "../pages/Dashboard/Testimonials/Testimonials";
