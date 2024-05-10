@@ -26,7 +26,7 @@ npm install
 npm run dev
 ```
 
-```
+
 4. Create a .env.local file in the root of your project 
 ```
 VITE_APIURL = Your_api_url
