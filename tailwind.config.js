@@ -9,7 +9,7 @@ export default {
     themes: [
       {
         winterTheme:{
-          primary: '#3BCF93',
+          primary: '#6FB7F5',
           secondary: '#FF9C33',
           accent: "#3A4256",
           neutral: "#3D4451",
@@ -23,3 +23,4 @@ export default {
   },
   plugins: [require("daisyui")],
 }
+// primary: #3BCF93

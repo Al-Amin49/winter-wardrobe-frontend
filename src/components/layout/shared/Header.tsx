@@ -1,6 +1,7 @@
 import { Menu, Moon, Sun, X } from "lucide-react";
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import logo from '../../../assets/img/winLogoFinal2.png';
 import { useAppDispatch, useAppSelector } from "../../../redux/hook";
 import { logout } from "../../../redux/features/authSlice";
 import { toggleTheme } from "../../../redux/features/themeSlice";
@@ -32,11 +33,11 @@ const Navbar = () => {
 
   return (
    
-      <div className="z-10 absolute   font-bold  w-full max-w-screen-xl bg-gradient-to-r from-green-500 to-black h-16 flex justify-between items-center   px-4 text-white ">
+      <div className="z-10 absolute   font-bold  w-full max-w-screen-xl bg-gradient-to-r bg-black h-[70px] flex justify-between items-center   px-4 text-white ">
         {/* Logo */}
         <Link to="/">
           {" "}
-          <h1 className=" text-2xl text-[white]">Winter Wardrobe</h1>
+         <img src={logo} alt="" className="w-36 " loading="lazy"/>
         </Link>
 
         {/* Desktop Navigation */}
