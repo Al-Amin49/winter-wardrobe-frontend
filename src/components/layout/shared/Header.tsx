@@ -1,7 +1,6 @@
 import { Menu, Moon, Sun, X } from "lucide-react";
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import Container from "../../Container";
 import { useAppDispatch, useAppSelector } from "../../../redux/hook";
 import { logout } from "../../../redux/features/authSlice";
 import { toggleTheme } from "../../../redux/features/themeSlice";
@@ -32,7 +31,7 @@ const Navbar = () => {
   };
 
   return (
-    <Container >
+   
       <div className="z-10 absolute   font-bold  w-full max-w-screen-xl bg-gradient-to-r from-green-500 to-black h-16 flex justify-between items-center   px-4 text-white ">
         {/* Logo */}
         <Link to="/">
@@ -151,7 +150,7 @@ const Navbar = () => {
           )}
         </ul>
       </div>
-    </Container>
+   
   );
 };
 

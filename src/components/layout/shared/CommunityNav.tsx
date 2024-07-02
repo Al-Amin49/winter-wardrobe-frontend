@@ -9,8 +9,10 @@ import Subline from "../../../components/Subline";
 const CommunityNav = () => {
      // eslint-disable-next-line @typescript-eslint/no-explicit-any
      const userInfo:any= useAppSelector((state)=>state.auth.userInfo);
+     console.log('userInfo', userInfo.data)
   
-     const user= userInfo?.data.user
+     const user= userInfo?.data.user;
+     console.log('user', user)
     return (
         <>
            <div  className='flex justify-evenly items-center py-2'>
@@ -18,8 +20,8 @@ const CommunityNav = () => {
        <div className='flex items-center'>
       {
         userInfo && <> 
-         <img src={user.profile} className='h-8 md:h-10 lg:h-18 ' alt="" /> 
-        <p className='text-sm md:text-base lg:text-lg font-bold'>{user.username}</p>
+         <img src={user?.profile} className='h-8 md:h-10 lg:h-18 ' alt="" /> 
+        <p className='text-sm md:text-base lg:text-lg font-bold'>{user?.username}</p>
         </>
       }
        </div>

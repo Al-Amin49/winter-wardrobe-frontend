@@ -7,6 +7,7 @@ import { TCommunityPost } from "@/types";
 
 const PostCard = () => {
   const { data, isLoading } = useGetAllCommunityPostQuery("");
+  
 
   if (isLoading) {
     return <Loading />;
