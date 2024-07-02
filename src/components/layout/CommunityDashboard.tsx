@@ -7,7 +7,9 @@ const CommunityDashboard = () => {
     return (
         <div>
             <CommunityNav/>
-            <Outlet/>
+        <div  className="min-h-screen">
+        <Outlet/>
+        </div>
             <Footer/>
         </div>
     );

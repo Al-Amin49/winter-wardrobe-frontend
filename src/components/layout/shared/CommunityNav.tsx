@@ -9,9 +9,9 @@ import Subline from "../../../components/Subline";
 const CommunityNav = () => {
      // eslint-disable-next-line @typescript-eslint/no-explicit-any
      const userInfo:any= useAppSelector((state)=>state.auth.userInfo);
-     console.log('userInfo', userInfo.data)
+    //  console.log('userInfo', userInfo.data)
   
-     const user= userInfo?.data.user;
+     const user= userInfo?.data?.user;
      console.log('user', user)
     return (
         <>

@@ -11,11 +11,11 @@ const ClotheCard = ({clothe}:TClotheProps) => {
             <div key={clothe._id} className="w-[90%] my-4 bg-white shadow-lg rounded-lg overflow-hidden">
             <img src={clothe.image} alt={clothe.title} className="w-full h-48 object-cover" />
             <div >
-              <h2  className="p-6">
+              <h2  className="p-6 ">
                 <span className="text-2xl font-bold text-primary mb-2">{clothe.title}</span>
-                <div className="badge badge-secondary">{clothe.category}</div>
+                <div className="badge badge-secondary ml-2">{clothe.category}</div>
               </h2>
-              <div className="">
+              <div className="mx-4">
                 <span className=" flex justify-between items-center text-secondary font-bold">Available Sizes: 
                 {
                   clothe.size.map((size)=><li key={size} className="list-none bg-primary p-2 rounded-lg text-white ">{size}</li>)
