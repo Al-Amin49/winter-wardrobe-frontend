@@ -19,7 +19,7 @@ const ClothePost = () => {
 
         <div className="pb-8">
           <h3 className="text-center text-xl md:text-3xl text-primary font-bold ">
-            Spread Warmth and Kindness: Donate Your Winter Wear Today!
+            Donate Your Winter Wear Today!
           </h3>
           <Subline bgPrimary={false} />
         </div>

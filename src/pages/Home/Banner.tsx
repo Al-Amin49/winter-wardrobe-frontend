@@ -6,7 +6,7 @@ import "swiper/css/navigation";
 import { useRef } from "react";
 import "../../styles/Banner.css";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
-import banner1 from "../../assets/img/banner/1-removebg-preview.png";
+import banner1 from "../../assets/img/banner/banner.png";
 import banner2 from "../../assets/img/banner/2-removebg-preview.png";
 import banner3 from "../../assets/img/banner/21.png";
 import { Link } from "react-router-dom";
@@ -48,7 +48,7 @@ const Banner = () => {
     },
   ]
   return (
-    <Container>
+    <Container >
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
@@ -61,7 +61,7 @@ const Banner = () => {
         }}
         navigation={true}
         modules={[Autoplay, Pagination, Navigation]}
-        className="mySwiper "
+        className="mySwiper"
       >
         {
           bannerData.map(data => (
