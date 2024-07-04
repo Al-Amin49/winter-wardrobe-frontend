@@ -1,4 +1,4 @@
-
+import {motion} from 'framer-motion'
 import Subline from '../../components/Subline';
 import about from '../../assets/img/about.jpeg';
 const AboutUs = () => {
@@ -12,16 +12,36 @@ const AboutUs = () => {
           <div className="container mx-auto px-4 py-8">
   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
     {/* Text Column */}
-    <div className="text-column p-4">
+    <motion.div
+    initial={{ x: 100, opacity: 0 }}
+    whileInView={{ x: 0, opacity: 1 }}
+    transition={{
+      delay: 0.4,
+      x: { type: "spring", stiffness: 60 },
+      opacity: { duration: 1 },
+      ease: "easeIn",
+      duration: 1,
+    }}
+    className="text-column p-4">
       <h2 className="text-2xl font-bold text-primary mb-4">Our Mission</h2>
       <p className="mb-4">Our mission is to provide warmth through winter clothes to those in need, ensuring that the harsh cold does not become a barrier to their well-being. We believe in community support and generosity to make a significant impact.</p>
       <h2 className="text-2xl font-bold text-primary mb-4">Our Goal</h2>
       <p>We aim to distribute over 10,000 winter clothing items this year, reaching out to underprivileged communities across different regions. Our goal is to not only provide physical warmth but also to spread hope and kindness.</p>
-    </div>
+    </motion.div>
     
     {/* Image Column */}
     <div className="image-column p-4 flex justify-center">
-      <img src={about} alt="Winter Clothes Distribution" className="w-full h-auto rounded-lg shadow-lg" />
+      <motion.img
+       initial={{ x: -100, opacity: 0 }}
+       whileInView={{ x: 0, opacity: 1 }}
+       transition={{
+         delay: 0.2,
+         x: { type: "spring", stiffness: 60 },
+         opacity: { duration: 1 },
+         ease: "easeIn",
+         duration: 1,
+       }}
+       src={about} alt="Winter Clothes Distribution" className="w-full h-auto rounded-lg shadow-lg" />
     </div>
   </div>
 </div>

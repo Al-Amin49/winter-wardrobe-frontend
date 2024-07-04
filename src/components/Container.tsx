@@ -1,6 +1,6 @@
 
 import { ReactNode } from 'react';
-
+import {motion } from 'framer-motion';
 type TContainerProps = {
   children: ReactNode;
   className?: string;
@@ -8,9 +8,12 @@ type TContainerProps = {
 
 const Container = ({ children }: TContainerProps) => {
   return (
-    <div className=' max-w-[1220px] mx-auto'>
+    <motion.div 
+    className=' max-w-[1220px] mx-auto'
+    
+    >
       {children}
-    </div>
+    </motion.div>
   );
 };
 

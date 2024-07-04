@@ -10,7 +10,7 @@ const Subline = ({ bgPrimary }:TSubline) => {
   return (
     <>
       <motion.div
-        className={`${conditionalClass} h-2 rounded mt-2 w-[10%] mx-auto`} 
+        className={`${conditionalClass} h-2 rounded mt-2 w-[7%] mx-auto`} 
         initial={{ x: "-10%" }}
         animate={{ x: "10%" }}
         transition={{

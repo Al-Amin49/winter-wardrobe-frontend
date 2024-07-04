@@ -1,10 +1,15 @@
+import { motionContainer } from "../../components/Framermotion/motionvarient";
 import Container from "../../components/Container";
-
+import {motion} from 'framer-motion'
 const RecentEvents = () => {
   return (
   <div className="pt-20">
       <Container>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 place-items-center">
+      <motion.div
+      initial={motionContainer.initial}
+      whileInView={motionContainer.whileInView}
+      transition={motionContainer.transition}
+       className="grid grid-cols-1 md:grid-cols-2 gap-8 place-items-center">
         {/* Left Column - Recent Events Text */}
         <div>
           <h4 className="text-3xl font-bold text-primary mb-4">Recent Events</h4>
@@ -31,7 +36,7 @@ const RecentEvents = () => {
           <img src="https://rb.gy/hwg20c" alt="Event 5" className="w-full h-auto rounded-[50%] shadow-lg" />
      
         </div>
-      </div>
+      </motion.div>
     </Container>
   </div>
   );

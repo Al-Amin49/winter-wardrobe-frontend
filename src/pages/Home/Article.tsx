@@ -3,6 +3,8 @@ import axios from 'axios';
 import { format } from 'date-fns';
 import Subline from '../../components/Subline';
 import Container from '../../components/Container';
+import {motion} from 'framer-motion'
+import { motionContainer } from '../../components/Framermotion/motionvarient';
 const Article = () => {
   const [articles, setArticles] = useState([]);
 type TArticle={
@@ -33,7 +35,11 @@ type TArticle={
       <div className='pb-16'>
       <Subline bgPrimary={false}/>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 place-items-center gap-4">
+      <motion.div
+      initial={motionContainer.initial}
+      whileInView={motionContainer.whileInView}
+      transition={motionContainer.transition}
+       className="grid grid-cols-1 md:grid-cols-3 place-items-center gap-4">
         {articles.map((article:TArticle) => (
           <div key={article.id} className="bg-white shadow-lg rounded-lg overflow-hidden">
             <img src={article.image} alt={article.title} className="w-full h-48 object-cover" />
@@ -44,7 +50,7 @@ type TArticle={
             </div>
           </div>
         ))}
-      </div>
+      </motion.div>
     </div>
     </Container>
   );
