@@ -52,13 +52,7 @@ const Testimonials = () => {
             {...register("message")}
             className="input input-bordered w-full max-w-xs"
           />
-          <input
-            type="number"
-            placeholder="Rating"
-            {...register("rating", { required: true, min: 1, max: 5 })}
-            className="input input-bordered w-full max-w-xs"
-            title="Please enter a rating between 1 and 5"
-          />
+         
           <button
             type="submit"
             className="btn btn-primary w-full max-w-xs text-white mt-8"

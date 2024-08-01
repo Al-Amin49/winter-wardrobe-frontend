@@ -4,5 +4,5 @@
     username:string,
     message:string,
     location:string,
-    rating:number
+    profile:string,
   }
