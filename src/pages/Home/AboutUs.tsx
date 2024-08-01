@@ -1,10 +1,19 @@
 import {motion} from 'framer-motion'
 import Subline from '../../components/Subline';
-import about from '../../assets/img/about.jpeg';
+import { useLottie } from "lottie-react";
+import mission from '../../utils/lottie/mission.json';
+import { LottieAnimationOptions } from '@/types';
+// import about from '../../assets/img/about.jpeg';
 const AboutUs = () => {
+  const options = {
+    animationData: mission,
+    loop: true,
+    autoplay: true,
+  };
+  const { View } = useLottie(options as LottieAnimationOptions, { height: 400 });
     return (
         <div>
-            <h3 className="text-3xl text-primary pt-20 text-center font-bold">About Us</h3>
+            <h3 className="text-3xl text-primary pt-20 text-center font-bold">Our Mission</h3>
             <div className='pb-16'>
       <Subline bgPrimary={false}/>
       </div>
@@ -30,7 +39,8 @@ const AboutUs = () => {
     </motion.div>
     
     {/* Image Column */}
-    <div className="image-column p-4 flex justify-center">
+    <div className="flex justify-center min-w-[300px]">{View}</div>
+    {/* <div className="image-column p-4 flex justify-center">
       <motion.img
        initial={{ x: -100, opacity: 0 }}
        whileInView={{ x: 0, opacity: 1 }}
@@ -42,7 +52,7 @@ const AboutUs = () => {
          duration: 1,
        }}
        src={about} alt="Winter Clothes Distribution" className="w-full h-auto rounded-lg shadow-lg" />
-    </div>
+    </div> */}
   </div>
 </div>
         </div>
