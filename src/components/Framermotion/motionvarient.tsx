@@ -5,7 +5,7 @@ export const motionContainer = {
       delay: 0.7,
       y: { type: "spring", stiffness: 60,  },
       opacity: { duration: 0.5 },
-      ease: "easeIn",
+      ease: "easeInOut",
       duration: 1,
     },
   };

@@ -36,7 +36,15 @@ const ClothePost = () => {
         </Link>
 
         <motion.div 
-        
+          initial={ {x: 500, opacity: 0} }
+          whileInView={{ x: 0, opacity: 1 }}
+          transition= {
+            {delay: 0.7,
+            y:{ type: "spring", stiffness: 60,  },
+            opacity: { duration: 0.5 },
+            ease: "easeIn",
+            duration: 0.6,}
+          }
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 place-items-center pb-3 ">
           {data?.data.slice(0, 6).map((clothe: TClothe) => (
             <ClotheCard key={clothe._id} clothe={clothe}></ClotheCard>
