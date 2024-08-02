@@ -22,7 +22,7 @@ const Testimonials = () => {
   return (
     <>
       <Container>
-        <h3 className="text-3xl font-bold text-primary text-center pt-20">
+        <h3 className="text-3xl font-bold text-primary text-center pt-10">
           Testimonials
         </h3>
         <div className='pb-5'>

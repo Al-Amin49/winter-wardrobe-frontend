@@ -5,6 +5,7 @@ import Article from "./Article";
 import AboutUs from "./AboutUs";
 import RecentEvents from "./RecentEvents";
 import ClothePost from "./ClothePost";
+import ParallaxSection from "./Parallax";
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
       <RecentEvents />
       <Video />
       <AboutUs />
+      <ParallaxSection/>
       <Testimonials />
     </div>
   );
