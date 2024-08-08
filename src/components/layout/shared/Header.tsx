@@ -8,8 +8,6 @@ import { toggleTheme } from "../../../redux/features/themeSlice";
 
 const Navbar = () => {
   const { userInfo } = useAppSelector((state) => state.auth);
-  // console.log('token', userInfo.data.token)
-  // const user= userInfo?.data?.user;
   const dispatch = useAppDispatch();
   const { darkMode } = useAppSelector((store) => store.theme);
   const handleToggleTheme = () => {
