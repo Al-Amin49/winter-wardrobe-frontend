@@ -6,7 +6,7 @@ import DashboardNav from "./shared/DashboardNav";
 const Dashboard = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-  const toggleSidebar = () => {
+  const toggleSidebar = ():void => {
     setIsSidebarOpen(!isSidebarOpen);
   };
 

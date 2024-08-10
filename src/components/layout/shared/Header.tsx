@@ -91,7 +91,7 @@ const Navbar = () => {
         )}
         <div className="flex items-center mr-4">
           <div className="flex flex-col items-center justify-center">
-          <h3 className="text-sm font-normal mt-2">{user.username}</h3>
+          <h3 className="text-sm font-normal mt-2">{user?.username}</h3>
           {/* <p className="text-sm font-normal text-primary">{user.role}</p> */}
           </div>
         </div>
@@ -135,24 +135,7 @@ const Navbar = () => {
             </NavLink>
           </>
         )}
-        {user ? (
-          <Link to="/login">
-            {" "}
-            <button
-              onClick={handleLogout}
-              className="btn btn-primary text-white"
-            >
-              Logout
-            </button>
-          </Link>
-        ) : (
-          <Link to="/login">
-            {" "}
-            <button onClick={closeNav} className="btn btn-primary text-white">
-              Login
-            </button>
-          </Link>
-        )}
+       
       </ul>
     </div>
   );
