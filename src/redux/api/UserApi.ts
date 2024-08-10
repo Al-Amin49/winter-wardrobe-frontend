@@ -15,12 +15,20 @@ export const userApi= baseApi.injectEndpoints({
                 method:'POST',
                 body:data
             })
-        })
+        }),
+        getAllUsers:builder.query({
+            query:()=>({
+                url:'/users/allusers',
+                method:'GET',
+            }),
+            providesTags:['user']
+        }),
     })
 
 })
 
 export const 
 {useLoginMutation,
-useRegisterMutation
+useRegisterMutation,
+useGetAllUsersQuery
 }= userApi;

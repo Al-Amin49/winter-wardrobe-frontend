@@ -1,4 +1,5 @@
 import { PieChart, Pie, Cell, ResponsiveContainer, PieLabelRenderProps } from "recharts";
+import Cards from "./Cards";
 
 const AdminHome = () => {
   const data = [
@@ -36,6 +37,8 @@ const AdminHome = () => {
     );
   };
   return (
+    <>
+    <Cards/>
     <div style={{ width: '100%', height: 400 }}>
       <ResponsiveContainer width="100%" height="100%">
         <PieChart width={400} height={400}>
@@ -59,6 +62,7 @@ const AdminHome = () => {
         </PieChart>
       </ResponsiveContainer>
     </div>
+    </>
   );
 };
 

@@ -3,6 +3,7 @@ import AdminHome from "../pages/Dashboard/AdminHome/AdminHome";
 import Clothes from "../pages/Dashboard/Clothe/Clothes";
 import AddClothe from "../pages/Dashboard/Clothe/AddClothe";
 import Testimonials from "../pages/Dashboard/Testimonials/Testimonials";
+import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
 
 export const dashboardRoutes = [
   {
@@ -24,6 +25,10 @@ export const dashboardRoutes = [
       {
         path: "create-testimonial",
         element: <Testimonials />,
+      },
+      {
+        path: "allusers",
+        element: <AllUsers />,
       },
     ],
   },
