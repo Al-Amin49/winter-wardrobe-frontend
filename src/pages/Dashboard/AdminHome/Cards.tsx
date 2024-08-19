@@ -8,7 +8,7 @@ const Cards = () => {
     const {data:volunteers}= useGetAllVolunteersQuery("")
     return (
         <>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 place-items-center">
             <div id="users" className="bg-secondary text-white px-10 py-4 w-48 rounded-md flex items-center justify-center space-x-4">
                 <div>
                 <h1 className="text-2xl">{users?.data?.length}</h1>

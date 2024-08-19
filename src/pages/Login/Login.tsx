@@ -51,7 +51,7 @@ const Login = () => {
   }
 
   return (
-    <div className="flex flex-wrap justify-center items-center gap-4 py-32">
+    <div className="flex flex-wrap justify-center items-center gap-4 pt-24">
       {/* Lottie Animation */}
       <div className="flex-1 min-w-[300px]">{View}</div>
 
