@@ -1,7 +1,11 @@
 import { PieChart, Pie, Cell, ResponsiveContainer, PieLabelRenderProps } from "recharts";
 import Cards from "./Cards";
+import { useAppSelector } from "../../../redux/hook";
 
 const AdminHome = () => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const userInfo: any = useAppSelector((state) => state.auth.userInfo);
+  const user = userInfo?.data?.user;
   const data = [
     { name: "Group A", value: 400 },
     { name: "Group B", value: 300 },
@@ -38,6 +42,7 @@ const AdminHome = () => {
   };
   return (
     <>
+    <h3 className="text-xl lg:text-2xl font-medium my-4">Welcome Back , <span className="font-bold text-primary">{user.username}</span></h3>
     <Cards/>
     <div style={{ width: '100%', height: 400 }}>
       <ResponsiveContainer width="100%" height="100%">

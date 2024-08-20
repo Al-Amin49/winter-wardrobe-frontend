@@ -3,7 +3,7 @@ import Container from "../../components/Container";
 import Loading from "../../components/Loading";
 import { useGetWhoMostDonateQuery } from "../../redux/api/donateApi";
 
-type TDonate={
+export type TDonate={
     _id:string,
     username:string,
     profile:string,
