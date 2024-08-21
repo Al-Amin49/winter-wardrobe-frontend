@@ -2,7 +2,7 @@ import { useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import { Home, Shirt, Star } from "lucide-react";
 import DashboardNav from "./shared/DashboardNav";
-import { FaUserFriends } from "react-icons/fa";
+import { FaDonate, FaUserFriends } from "react-icons/fa";
 
 const Dashboard = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -38,6 +38,12 @@ const Dashboard = () => {
               <NavLink to="/dashboard/create-testimonial">
                 <Star />
                 Create Testimonial
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/dashboard/all-donations">
+                <FaDonate />
+               All Donations
               </NavLink>
             </li>
             <li>

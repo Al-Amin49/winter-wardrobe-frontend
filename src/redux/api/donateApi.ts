@@ -25,6 +25,20 @@ const donateApi= baseApi.injectEndpoints({
             }),
             providesTags:['donate']
         }),
+        getRecentDonation:builder.query({
+            query:()=>({
+                url:`/donate/recent`,
+                method:"GET",
+            }),
+            providesTags:['donate']
+        }),
+        getAllDonation:builder.query({
+            query:()=>({
+                url:`/donate`,
+                method:"GET",
+            }),
+            providesTags:['donate']
+        }),
         getWhoMostDonate:builder.query({
             query:()=>({
             url: '/donate/leaderboard',
@@ -40,5 +54,7 @@ export const {
 useAddDonateMutation,
 useGetSingleDonateQuery,
 useGetWhoMostDonateQuery,
-useGetDonationsByCategoryQuery
+useGetDonationsByCategoryQuery,
+useGetRecentDonationQuery,
+useGetAllDonationQuery
 }= donateApi

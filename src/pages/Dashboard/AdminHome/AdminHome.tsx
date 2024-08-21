@@ -1,21 +1,25 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { Pie } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import Cards from "./Cards";
 import { useAppSelector } from "../../../redux/hook";
-import { useGetDonationsByCategoryQuery } from "../../../redux/api/donateApi";
+import { useGetDonationsByCategoryQuery, useGetRecentDonationQuery } from "../../../redux/api/donateApi";
+import Loading from "../../../components/Loading";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const AdminHome = () => {
-  const userInfo = useAppSelector((state) => state.auth.userInfo);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const userInfo:any = useAppSelector((state) => state.auth.userInfo);
   const user = userInfo?.data?.user;
   
   const { data: donationByCategory, isLoading, error } = useGetDonationsByCategoryQuery("");
-  console.log('data', donationByCategory?.data)
+  const {data:recentDonations}= useGetRecentDonationQuery("")
+
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <Loading/>;
   }
 
   if (error) {
@@ -23,6 +27,7 @@ const AdminHome = () => {
   }
 
   const data = {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     labels: donationByCategory?.data?.map((item: any) => item._id),
     datasets: [
       {
@@ -61,13 +66,37 @@ const AdminHome = () => {
         Welcome Back, <span className="font-bold text-primary">{user.username}</span>
       </h3>
       <Cards />
-    <div className="flex  flex-col lg:flex-row justify-between items-center gap-10">
-      <div style={{ width: "100%", height: 400 }}>
-      <h3>Donation Stats</h3>
+    <div className="flex  flex-col lg:flex-row justify-between items-center gap-10 mt-4">
+      <div style={{ width: "80%", height: 350 }}>
+      <h3 className=" text-xl lg:text-2xl  text-primary mr-4">Donation Stats</h3>
         <Pie data={data} options={options} />
       
       </div>
-      <div>hello</div>
+      <div>
+          <h3 className="my-4 text-xl lg:text-2xl text-primary">Recent Donations</h3>
+          <table className="min-w-full bg-white border border-gray-200 rounded-lg overflow-hidden">
+            <thead>
+              <tr className="bg-gradient-to-r from-primary to-secondary text-gray-200 uppercase text-sm leading-normal">
+                <th className="py-3 px-6 text-left">Donor</th>
+                <th className="py-3 px-6 text-left">Clothe Name</th>
+                <th className="py-3 px-6 text-left">Quantity</th>
+              </tr>
+            </thead>
+            <tbody className="text-gray-600 text-sm font-light">
+              {recentDonations?.data?.map((donation: any) => (
+                <tr key={donation._id} className="border-b border-gray-200 hover:bg-gray-100 hover:shadow-lg hover:scale-105">
+                  <td className="py-3 px-6 text-left whitespace-nowrap">
+                    <div className="flex items-center space-x-2">
+                    <img src={donation.userId.profile}  className="w-10"alt="" />
+                    <h3>  {donation.userId.username}</h3>
+                    </div></td>
+                  <td className="py-3 px-6 text-left">{donation.clotheId.title}</td>
+                  <td className="py-3 px-6 text-left">{donation.quantity}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
     </div>
 
   
