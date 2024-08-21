@@ -1,72 +1,76 @@
-import { PieChart, Pie, Cell, ResponsiveContainer, PieLabelRenderProps } from "recharts";
+
+import { Pie } from "react-chartjs-2";
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import Cards from "./Cards";
 import { useAppSelector } from "../../../redux/hook";
+import { useGetDonationsByCategoryQuery } from "../../../redux/api/donateApi";
+
+ChartJS.register(ArcElement, Tooltip, Legend);
 
 const AdminHome = () => {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const userInfo: any = useAppSelector((state) => state.auth.userInfo);
+  const userInfo = useAppSelector((state) => state.auth.userInfo);
   const user = userInfo?.data?.user;
-  const data = [
-    { name: "Group A", value: 400 },
-    { name: "Group B", value: 300 },
-    { name: "Group C", value: 300 },
-    { name: "Group D", value: 200 },
-  ];
-
-  const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
-
-  const RADIAN = Math.PI / 180;
-  const renderCustomizedLabel = ({
-    cx=0,
-    cy,
-    midAngle,
-    innerRadius = 0,
-    outerRadius,
-    percent = 0,
-  }: PieLabelRenderProps) => {
-    const radius = innerRadius?? + (outerRadius?? - innerRadius) * 0.5;
-    const x = cx?? + radius * Math.cos(-midAngle * RADIAN);
-    const y = cy?? + radius * Math.sin(-midAngle * RADIAN);
   
-    return (
-      <text
-        x={x}
-        y={y}
-        fill="white"
-        textAnchor={x > cx ? "start" : "end"}
-        dominantBaseline="central"
-      >
-        {`${(percent * 100).toFixed(0)}%`}
-      </text>
-    );
+  const { data: donationByCategory, isLoading, error } = useGetDonationsByCategoryQuery("");
+  console.log('data', donationByCategory?.data)
+
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>Error loading donation stats</p>;
+  }
+
+  const data = {
+    labels: donationByCategory?.data?.map((item: any) => item._id),
+    datasets: [
+      {
+        label: "Donations by Category",
+        data: donationByCategory?.data?.map((item: any) => item.totalDonations),
+        backgroundColor: ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"],
+        borderColor: ["#ffffff"],
+        borderWidth: 1,
+      },
+    ],
   };
+
+  const options = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: "top" as const,
+      },
+      tooltip: {
+        callbacks: {
+          label: function (tooltipItem: any) {
+            const dataset = tooltipItem.dataset;
+            const total = dataset.data.reduce((sum: number, val: number) => sum + val, 0);
+            const currentValue = dataset.data[tooltipItem.dataIndex];
+            const percentage = ((currentValue / total) * 100).toFixed(2);
+            return `${tooltipItem.label}: ${percentage}% (${currentValue})`;
+          },
+        },
+      },
+    },
+  };
+
   return (
     <>
-    <h3 className="text-xl lg:text-2xl font-medium my-4">Welcome Back , <span className="font-bold text-primary">{user.username}</span></h3>
-    <Cards/>
-    <div style={{ width: '100%', height: 400 }}>
-      <ResponsiveContainer width="100%" height="100%">
-        <PieChart width={400} height={400}>
-          <Pie
-            data={data}
-            cx="50%"
-            cy="50%"
-            labelLine={false}
-            label={renderCustomizedLabel}
-            outerRadius={80}
-            fill="#8884d8"
-            dataKey="value"
-          >
-            {data.map((_, index) => (
-              <Cell
-                key={`cell-${index}`}
-                fill={COLORS[index % COLORS.length]}
-              />
-            ))}
-          </Pie>
-        </PieChart>
-      </ResponsiveContainer>
+      <h3 className="text-xl lg:text-2xl font-medium my-4">
+        Welcome Back, <span className="font-bold text-primary">{user.username}</span>
+      </h3>
+      <Cards />
+    <div className="flex  flex-col lg:flex-row justify-between items-center gap-10">
+      <div style={{ width: "100%", height: 400 }}>
+      <h3>Donation Stats</h3>
+        <Pie data={data} options={options} />
+      
+      </div>
+      <div>hello</div>
     </div>
+
+  
     </>
   );
 };
