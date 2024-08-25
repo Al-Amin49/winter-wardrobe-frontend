@@ -5,6 +5,7 @@ import AddClothe from "../pages/Dashboard/Clothe/AddClothe";
 import Testimonials from "../pages/Dashboard/Testimonials/Testimonials";
 import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
 import AllDonation from "../pages/Dashboard/AllDonation/AllDonation";
+import ManageTestimonial from "../pages/Dashboard/Testimonials/ManageTestimonial";
 
 export const dashboardRoutes = [
   {
@@ -34,6 +35,10 @@ export const dashboardRoutes = [
       {
         path: "all-donations",
         element: <AllDonation />,
+      },
+      {
+        path: "manage-testimonial",
+        element: <ManageTestimonial />,
       },
     ],
   },

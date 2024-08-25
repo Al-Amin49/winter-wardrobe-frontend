@@ -3,10 +3,15 @@ import { NavLink, Outlet } from "react-router-dom";
 import { Home, Shirt, Star } from "lucide-react";
 import DashboardNav from "./shared/DashboardNav";
 import { FaDonate, FaUserFriends } from "react-icons/fa";
+import { useAppSelector } from "../../redux/hook";
 
 const Dashboard = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const userInfo:any = useAppSelector((state) => state.auth.userInfo);
+  const user = userInfo?.data?.user;
 
+  
   const toggleSidebar = (): void => {
     setIsSidebarOpen(!isSidebarOpen);
   };
@@ -22,7 +27,9 @@ const Dashboard = () => {
           } md:relative md:translate-x-0  md:h-auto`}
         >
           <ul className="menu p-4 text-base">
-            <li>
+            {
+              user?.role==='admin'?(<>
+              <li>
               <NavLink to="/dashboard/admin-home">
                 <Home />
                 Admin Home
@@ -34,12 +41,7 @@ const Dashboard = () => {
                 Clothes
               </NavLink>
             </li>
-            <li>
-              <NavLink to="/dashboard/create-testimonial">
-                <Star />
-                Create Testimonial
-              </NavLink>
-            </li>
+            
             <li>
               <NavLink to="/dashboard/all-donations">
                 <FaDonate />
@@ -52,6 +54,27 @@ const Dashboard = () => {
                All Users
               </NavLink>
             </li>
+            <li>
+              <NavLink to="/dashboard/manage-testimonial">
+                <Star />
+                Manage Testimonial
+              </NavLink>
+            </li>
+              </>): (<>
+                <li>
+              <NavLink to="/dashboard/admin-home">
+                <Home />
+                Admin Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/dashboard/create-testimonial">
+                <Star />
+                Create Testimonial
+              </NavLink>
+            </li>
+              </>)
+            }
           </ul>
         </div>
 

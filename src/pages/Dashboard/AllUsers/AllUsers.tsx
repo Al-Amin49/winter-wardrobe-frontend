@@ -11,6 +11,7 @@ type TUsers = {
 
 const AllUsers = () => {
   const { data, isLoading } = useGetAllUsersQuery("");
+  // console.log('data', data?.data?.users)
 
   if (isLoading) {
     return <Loading />;
@@ -33,7 +34,7 @@ const AllUsers = () => {
             </tr>
           </thead>
           <tbody className="text-gray-600 text-sm font-light">
-            {data?.data.map((user: TUsers, index: number) => (
+            {data?.data?.map((user: TUsers, index: number) => (
               <tr key={user._id} className="border-b border-gray-200 hover:bg-gray-100">
                 <td className="text-center">{index + 1}</td>
                 <td className="py-3 px-6 text-left whitespace-nowrap">

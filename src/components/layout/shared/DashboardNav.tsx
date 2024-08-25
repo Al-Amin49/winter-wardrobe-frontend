@@ -49,7 +49,7 @@ const DashboardNav = ({ toggleSidebar }: TToggleSidebar) => {
 
           {/* Logo */}
           <Link to="/">
-            <img src={logo} alt="" className="w-36" loading="lazy" />
+            <img src={logo} alt="" className="w-24 lg:w-36 " loading="lazy" />
           </Link>
         </div>
         {/* Desktop Navigation */}
@@ -91,7 +91,7 @@ const DashboardNav = ({ toggleSidebar }: TToggleSidebar) => {
             <div className="flex items-center mr-4">
               <div className="flex flex-col items-center justify-center">
                 <h3 className="text-sm font-normal mt-2">{user?.username}</h3>
-                {/* <p className="text-sm font-normal text-primary">{user.role}</p> */}
+                {user?.role==='admin'&& <span><h3 className="px-2 py-0 rounded-full text-xs bg-green-500 ">{user?.role}</h3></span>}
               </div>
             </div>
             <button

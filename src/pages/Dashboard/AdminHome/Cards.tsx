@@ -24,7 +24,7 @@ const Cards = () => {
   const totalDonationsSum = donate?.data.reduce((sum: number, donate: TDonate) => sum + donate.totalDonations, 0);
 
   return (
-    <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 place-items-center w-full max-w-screen-xl mx-auto p-4">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 place-items-center w-full max-w-screen-xl mx-auto p-4">
       <Card
         id="donate"
         title="Donations"

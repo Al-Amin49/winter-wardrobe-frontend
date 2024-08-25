@@ -9,7 +9,7 @@ const AllDonation = () => {
   }
   return (
     <div className="p-4 lg:px-8">
-      <h3 className="mb-4 text-xl lg:text-2xl text-center text-primary">Recent Donations</h3>
+      <h3 className="mb-4 text-xl lg:text-2xl text-center text-primary">All Donations</h3>
       <div className="overflow-x-auto">
         <table className="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
           <thead>

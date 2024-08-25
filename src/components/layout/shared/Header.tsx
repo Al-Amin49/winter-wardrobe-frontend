@@ -65,9 +65,11 @@ const Navbar = () => {
               role="button"
               className="btn btn-ghost btn-circle avatar"
             >
-              <div className="w-10 rounded-full">
+              <div className="w-10 rounded-full ">
                 <img alt={user.name} src={user.profile} />
+                
               </div>
+             
             </div>
             <ul
               tabIndex={0}
@@ -92,6 +94,7 @@ const Navbar = () => {
         <div className="flex items-center mr-4">
           <div className="flex flex-col items-center justify-center">
             <h3 className="text-sm font-normal mt-2">{user?.username}</h3>
+           {user?.role==='admin'&& <span><h3 className="px-2 py-0 rounded-full text-xs bg-green-500 ">{user?.role}</h3></span>}
           </div>
         </div>
         <button

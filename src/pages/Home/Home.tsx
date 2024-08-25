@@ -9,7 +9,7 @@ import ParallaxSection from "./Parallax";
 
 const Home = () => {
   return (
-    <div>
+    <div className="overflow-x-hidden">
       <Banner />
       <ClothePost />
       <Article />
