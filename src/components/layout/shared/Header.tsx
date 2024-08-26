@@ -36,7 +36,6 @@ const Navbar = () => {
   return (
     <div className="z-10 absolute font-bold w-full max-w-screen-xl bg-gradient-to-r bg-black h-[70px] flex justify-between items-center px-4 text-white">
       <div className="flex items-center">
-      
         {/* Logo for Large and Small Screens */}
         <Link to="/">
           <img src={logo} alt="Logo" className="w-24 lg:w-36 " loading="lazy" />
@@ -55,7 +54,6 @@ const Navbar = () => {
         <NavLink to="/leaderboard">Leaderboard</NavLink>
         <NavLink to="/about-us">About Us</NavLink>
       </ul>
-      
 
       {/* TOGGLE THEME */}
       <div className="flex items-center">
@@ -68,15 +66,22 @@ const Navbar = () => {
             >
               <div className="w-10 rounded-full ">
                 <img alt={user.name} src={user.profile} />
-                
               </div>
-             
             </div>
             <ul
               tabIndex={0}
               className="menu menu-sm dropdown-content bg-black text-white text-center rounded-box z-[1] mt-3 w-32 p-2 shadow"
             >
-              <NavLink to="/dashboard">Dashboard</NavLink>
+              {user.role==="admin" ? (
+                <>
+                  {" "}
+                  <NavLink to="/dashboard/adminhome">Dashboard</NavLink>
+                </>
+              ) : (
+                <>
+                  <NavLink to="/dashboard/create-testimonial">Dashboard</NavLink>
+                </>
+              )}
               <Link to="/login">
                 <button
                   onClick={handleLogout}
@@ -89,13 +94,21 @@ const Navbar = () => {
           </div>
         ) : (
           <Link to="/login">
-            <button className="btn btn-sm btn-primary hidden lg:block text-white">Login</button>
+            <button className="btn btn-sm btn-primary hidden lg:block text-white">
+              Login
+            </button>
           </Link>
         )}
         <div className="flex items-center mr-4">
           <div className="flex flex-col items-center justify-center">
             <h3 className="text-sm font-normal mt-2">{user?.username}</h3>
-           {user?.role==='admin'&& <span><h3 className="px-2 py-0 rounded-full text-xs bg-green-500 ">{user?.role}</h3></span>}
+            {user?.role === "admin" && (
+              <span>
+                <h3 className="px-2 py-0 rounded-full text-xs bg-green-500 ">
+                  {user?.role}
+                </h3>
+              </span>
+            )}
           </div>
         </div>
         <button
@@ -133,9 +146,9 @@ const Navbar = () => {
           Volunteer
         </NavLink>
         <Link to="/login">
-            <button className="btn btn-sm btn-primary  text-white">Login</button>
-          </Link>
-          <button
+          <button className="btn btn-sm btn-primary  text-white">Login</button>
+        </Link>
+        <button
           onClick={handleToggleTheme}
           className="rounded-lg backdrop-blur-[2px] p-1 "
         >

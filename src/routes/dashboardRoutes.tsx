@@ -7,14 +7,15 @@ import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
 import AllDonation from "../pages/Dashboard/AllDonation/AllDonation";
 import ManageTestimonial from "../pages/Dashboard/Testimonials/ManageTestimonial";
 import ProtectedRoute from "../components/layout/ProtectedRoute";
+import AdminProtectedRoute from "../components/layout/AdminRoute";
 
 export const dashboardRoutes = [
   {
     path: "/dashboard",
-    element:<ProtectedRoute> <Dashboard /></ProtectedRoute>,
+    element:<AdminProtectedRoute><Dashboard /></AdminProtectedRoute>,
     children: [
       {
-        index:true,
+        path:"adminhome",
         element: <AdminHome />,
       },
       {
@@ -25,10 +26,7 @@ export const dashboardRoutes = [
         path: "create-winter-clothe",
         element: <AddClothe />,
       },
-      {
-        path: "create-testimonial",
-        element: <Testimonials />,
-      },
+      
       {
         path: "allusers",
         element: <AllUsers />,
@@ -43,4 +41,14 @@ export const dashboardRoutes = [
       },
     ],
   },
+   {
+     path:'/dashboard',
+     element:<ProtectedRoute><Dashboard/></ProtectedRoute>,
+     children:[
+      {
+        path: "create-testimonial",
+        element: <Testimonials />,
+      },
+     ]
+  }
 ];
