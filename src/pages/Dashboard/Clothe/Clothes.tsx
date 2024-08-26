@@ -1,23 +1,28 @@
 import { FaTrashAlt } from "react-icons/fa";
 import Loading from "../../../components/Loading";
 import {
-  useDeleteClotheMutation,
+  // useDeleteClotheMutation,
   useGetAllClothesQuery,
 } from "../../../redux/api/ClotheApi";
 import UpdateClothe from "./UpdateClothe";
 import { Link } from "react-router-dom";
 import { TClothe } from "../../../types";
+import { toast } from "react-toastify";
 
 const Clothes = () => {
   const { data, isLoading } = useGetAllClothesQuery("");
 
-  const [deleteClothe] = useDeleteClotheMutation();
+  // const [deleteClothe] = useDeleteClotheMutation();
 
-  const handleDeleteClothe = (id: string) => {
-    if (window.confirm("Are you sure to delete ")) {
-      deleteClothe(id);
-    }
-  };
+  // const handleDeleteClothe = (id: string) => {
+  //   if (window.confirm("Are you sure to delete ")) {
+  //     deleteClothe(id);
+  //   }
+  // };
+
+  const handleDeleteClothe=()=>{
+      toast.error('Only Superadmin can delete this')
+  }
 
   if (isLoading) {
     return <Loading />;
@@ -73,7 +78,7 @@ const Clothes = () => {
                 </td>
                 <td className="py-3 px-6 text-center">
                   <button
-                    onClick={() => handleDeleteClothe(clothe._id)}
+                    onClick={handleDeleteClothe}
                     className="text-red-600 hover:text-red-800"
                   >
                     <FaTrashAlt />

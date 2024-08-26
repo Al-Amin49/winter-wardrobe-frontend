@@ -11,6 +11,7 @@ import { toggleTheme } from "../../../redux/features/themeSlice";
 const Navbar = () => {
   const userInfo: any = useAppSelector((state) => state.auth.userInfo);
   const user = userInfo?.data?.user;
+
   const dispatch = useAppDispatch();
   const { darkMode } = useAppSelector((store) => store.theme);
 
@@ -75,7 +76,7 @@ const Navbar = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content bg-black text-white text-center rounded-box z-[1] mt-3 w-32 p-2 shadow"
             >
-              <NavLink to="/dashboard/admin-home">Dashboard</NavLink>
+              <NavLink to="/dashboard">Dashboard</NavLink>
               <Link to="/login">
                 <button
                   onClick={handleLogout}

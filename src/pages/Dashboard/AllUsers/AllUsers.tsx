@@ -1,6 +1,7 @@
 import { FaTrashAlt } from "react-icons/fa";
 import Loading from "../../../components/Loading";
 import { useGetAllUsersQuery } from "../../../redux/api/UserApi";
+import { toast } from "react-toastify";
 
 type TUsers = {
   _id: string;
@@ -16,7 +17,12 @@ const AllUsers = () => {
   if (isLoading) {
     return <Loading />;
   }
-
+  const handleDelete=()=>{
+    toast.error('Only Superadmin can delete this')
+  }
+  const handleMakeAdmin=()=>{
+    toast.error('Only Superadmin can do this')
+  }
   return (
     <div className="p-4">
       <div className="flex justify-between items-center my-4">
@@ -47,8 +53,12 @@ const AllUsers = () => {
                   </span>
                 </td>
                 <td className="py-3 px-6 text-center">
-                  <button className="btn btn-primary btn-sm mr-2">Make Admin</button>
-                  <button className="btn btn-ghost btn-lg">
+                  <button 
+                  onClick={handleMakeAdmin}
+                  className="btn btn-primary btn-sm mr-2">Make Admin</button>
+                  <button 
+                  onClick={handleDelete}
+                  className="btn btn-ghost btn-lg">
                     <FaTrashAlt className="text-red-600" />
                   </button>
                 </td>

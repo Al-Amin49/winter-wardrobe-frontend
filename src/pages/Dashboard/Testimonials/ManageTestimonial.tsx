@@ -2,15 +2,18 @@ import { FaTrashAlt } from "react-icons/fa";
 import Loading from "../../../components/Loading";
 import { useGetAllTestimonialQuery } from "../../../redux/api/testimonialApi";
 import { TTestimonial } from "@/types";
+import { toast } from "react-toastify";
 
 
 const ManageTestimonial = () => {
     const { data, isLoading } = useGetAllTestimonialQuery("");
  
-  
     if (isLoading) {
       return <Loading />;
     }
+    const handleDelete=()=>{
+        toast.error('Only Superadmin can delete this')
+      }
     return (
         <div>
             <div className="p-4">
@@ -42,7 +45,8 @@ const ManageTestimonial = () => {
                 <td className="py-3 px-6 text-left">{review.message}</td>
             
                 <td className="py-3 px-6 text-center">
-                  <button className="btn btn-ghost btn-lg">
+                  <button onClick={handleDelete}
+                   className="btn btn-ghost btn-lg">
                     <FaTrashAlt className="text-red-600" />
                   </button>
                 </td>

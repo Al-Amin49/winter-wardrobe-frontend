@@ -40,7 +40,7 @@ const DashboardNav = ({ toggleSidebar }: TToggleSidebar) => {
 
   return (
     <>
-      <div className="font-bold w-full max-w-screen-xl bg-gradient-to-r bg-black h-[70px] flex  justify-between items-center px-4 text-white">
+      <div className=" font-bold w-full max-w-screen-xl bg-gradient-to-r bg-black h-[70px] flex  justify-between items-center px-4 text-white">
         <div className="flex items-center ">
           {/* Mobile Navigation Icon */}
           <div onClick={handleNav} className="block md:hidden mr-2 lg:ml-0">

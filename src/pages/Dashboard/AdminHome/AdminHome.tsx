@@ -63,7 +63,7 @@ const AdminHome = () => {
   return (
     <>
       <h3 className="text-xl lg:text-2xl font-medium my-4">
-        Welcome Back, <span className="font-bold text-primary">{user.username}</span>
+        Welcome Back, <span className="font-bold text-primary">{user?.username}</span>
       </h3>
       <Cards />
     <div className="flex  flex-col lg:flex-row justify-between items-center gap-10 mt-4">
@@ -87,11 +87,11 @@ const AdminHome = () => {
                 <tr key={donation._id} className="border-b border-gray-200 hover:bg-gray-100 hover:shadow-lg hover:scale-105">
                   <td className="py-3 px-6 text-left whitespace-nowrap">
                     <div className="flex items-center space-x-2">
-                    <img src={donation.userId.profile}  className="w-10"alt="" />
-                    <h3>  {donation.userId.username}</h3>
+                    <img src={donation?.userId?.profile}  className="w-10"alt="" />
+                    <h3>  {donation?.userId?.username}</h3>
                     </div></td>
-                  <td className="py-3 px-6 text-left">{donation.clotheId.title}</td>
-                  <td className="py-3 px-6 text-left">{donation.quantity}</td>
+                  <td className="py-3 px-6 text-left">{donation?.clotheId?.title}</td>
+                  <td className="py-3 px-6 text-left">{donation?.quantity}</td>
                 </tr>
               ))}
             </tbody>

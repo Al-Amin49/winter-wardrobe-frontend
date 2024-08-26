@@ -6,14 +6,15 @@ import Testimonials from "../pages/Dashboard/Testimonials/Testimonials";
 import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
 import AllDonation from "../pages/Dashboard/AllDonation/AllDonation";
 import ManageTestimonial from "../pages/Dashboard/Testimonials/ManageTestimonial";
+import ProtectedRoute from "../components/layout/ProtectedRoute";
 
 export const dashboardRoutes = [
   {
     path: "/dashboard",
-    element: <Dashboard />,
+    element:<ProtectedRoute> <Dashboard /></ProtectedRoute>,
     children: [
       {
-        path: "admin-home",
+        index:true,
         element: <AdminHome />,
       },
       {
