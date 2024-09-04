@@ -1,19 +1,16 @@
-
 import { ReactNode } from 'react';
-import {motion } from 'framer-motion';
+import { twMerge } from 'tailwind-merge';
+
 type TContainerProps = {
   children: ReactNode;
   className?: string;
 };
 
-const Container = ({ children }: TContainerProps) => {
+const Container = ({ children, className }: TContainerProps) => {
   return (
-    <motion.div 
-    className=' max-w-[1220px] mx-auto'
-    
-    >
+    <div className={twMerge('max-w-[1220px] mx-auto', className)}>
       {children}
-    </motion.div>
+    </div>
   );
 };
 

@@ -37,7 +37,7 @@
     "redux": "^5.0.1",
     "redux-persist": "^6.0.0",
     "swiper": "^11.0.7",
-    "tailwind-merge": "^2.2.2",
+    "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7",
     "u": "^0.1.0"
   },

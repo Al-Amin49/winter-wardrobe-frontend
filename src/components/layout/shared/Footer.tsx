@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { FaFacebookF, FaInstagram, FaTwitter, FaPhone, FaMapMarkerAlt, FaEnvelope } from "react-icons/fa";
 import Container from "../../../components/Container";
-import logo from '../../../assets/img/winLogoFinal2.png';
+import logo from '../../../assets/img/logoWinter.png';
 
 const Footer = () => {
   return (

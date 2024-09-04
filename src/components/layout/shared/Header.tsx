@@ -2,7 +2,7 @@
 import { Menu, Moon, Sun, X } from "lucide-react";
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import logo from "../../../assets/img/winLogoFinal2.png";
+import logo from "../../../assets/img/logoWinter.png";
 import { useAppDispatch, useAppSelector } from "../../../redux/hook";
 import { logout } from "../../../redux/features/authSlice";
 import { toggleTheme } from "../../../redux/features/themeSlice";
@@ -34,11 +34,11 @@ const Navbar = () => {
   };
 
   return (
-    <div className="z-10 absolute font-bold w-full max-w-screen-xl bg-gradient-to-r bg-black h-[70px] flex justify-between items-center px-4 text-white">
+    <div className="z-10 absolute bg-gray-200 font-bold w-full max-w-screen-xl text-secno h-[70px] flex justify-between items-center px-4 ">
       <div className="flex items-center">
         {/* Logo for Large and Small Screens */}
         <Link to="/">
-          <img src={logo} alt="Logo" className="w-24 lg:w-36 " loading="lazy" />
+          <img src={logo} alt="Logo" className="w-24 lg:w-32 " loading="lazy" />
           {/* <img src={smallLogo} alt="Small Logo" className="w-14 lg:hidden" loading="lazy" /> */}
         </Link>
       </div>
@@ -72,14 +72,14 @@ const Navbar = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content bg-black text-white text-center rounded-box z-[1] mt-3 w-32 p-2 shadow"
             >
-              {user.role==="admin" ? (
+              {user.role === "admin" ? (
                 <>
                   {" "}
                   <NavLink to="/dashboard/adminhome">Dashboard</NavLink>
                 </>
               ) : (
                 <>
-                  <NavLink to="/dashboard/create-testimonial">Dashboard</NavLink>
+                  <NavLink to="/dashboard/donation-history">Dashboard</NavLink>
                 </>
               )}
               <Link to="/login">
@@ -117,7 +117,7 @@ const Navbar = () => {
         >
           {darkMode ? <Sun /> : <Moon size={24} />}
         </button>
-        <div onClick={handleNav} className="block lg:hidden mr-2">
+        <div onClick={handleNav} className="block lg:hidden mr-2 text-black">
           {nav ? <X size={20} /> : <Menu size={20} />}
         </div>
       </div>
@@ -126,7 +126,7 @@ const Navbar = () => {
       <ul
         className={
           nav
-            ? "fixed flex flex-col space-y-2 lg:hidden left-0 top-[70px] w-[60%] h-fit rounded-md p-4 border-r border-r-gray-900 bg-[#000300] ease-in-out duration-500"
+            ? "fixed flex flex-col space-y-2 lg:hidden left-0 top-[70px] w-[60%] h-fit rounded-md p-4 border-r border-r-gray-900 bg-[#000300]  text-white ease-in-out duration-500"
             : "ease-in-out w-[60%] duration-500 fixed top-0 bottom-0 left-[-100%]"
         }
       >

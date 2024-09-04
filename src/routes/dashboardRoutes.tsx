@@ -8,8 +8,10 @@ import AllDonation from "../pages/Dashboard/AllDonation/AllDonation";
 import ManageTestimonial from "../pages/Dashboard/Testimonials/ManageTestimonial";
 import ProtectedRoute from "../components/layout/ProtectedRoute";
 import AdminProtectedRoute from "../components/layout/AdminRoute";
+import DonationHistory from "../pages/Dashboard/User/DonationHistory";
 
 export const dashboardRoutes = [
+  //admin route
   {
     path: "/dashboard",
     element:<AdminProtectedRoute><Dashboard /></AdminProtectedRoute>,
@@ -41,10 +43,15 @@ export const dashboardRoutes = [
       },
     ],
   },
+  // user route
    {
      path:'/dashboard',
      element:<ProtectedRoute><Dashboard/></ProtectedRoute>,
      children:[
+      {
+        path: "donation-history",
+        element: <DonationHistory />,
+      },
       {
         path: "create-testimonial",
         element: <Testimonials />,

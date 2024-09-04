@@ -1,7 +1,7 @@
 import { Menu, Moon, Sun, X } from "lucide-react";
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import logo from "../../../assets/img/winLogoFinal2.png";
+import logo from "../../../assets/img/logoWinter.png";
 import { useAppDispatch, useAppSelector } from "../../../redux/hook";
 import { logout } from "../../../redux/features/authSlice";
 import { toggleTheme } from "../../../redux/features/themeSlice";
@@ -40,16 +40,16 @@ const DashboardNav = ({ toggleSidebar }: TToggleSidebar) => {
 
   return (
     <>
-      <div className=" font-bold w-full max-w-screen-xl bg-gradient-to-r bg-black h-[70px] flex  justify-between items-center px-4 text-white">
+      <div className=" font-bold w-full max-w-screen-xl bg-gradient-to-r bg-gray-200 h-[70px] flex  justify-between items-center px-4 text-white">
         <div className="flex items-center ">
           {/* Mobile Navigation Icon */}
-          <div onClick={handleNav} className="block md:hidden mr-2 lg:ml-0">
+          <div onClick={handleNav} className="block md:hidden mr-2 lg:ml-0 text-black">
             {nav ? <X size={20} /> : <Menu size={20} />}
           </div>
 
           {/* Logo */}
           <Link to="/">
-            <img src={logo} alt="" className="w-24 lg:w-36 " loading="lazy" />
+            <img src={logo} alt="" className="w-24 lg:w-32 " loading="lazy" />
           </Link>
         </div>
         {/* Desktop Navigation */}
@@ -90,13 +90,13 @@ const DashboardNav = ({ toggleSidebar }: TToggleSidebar) => {
             )}
             <div className="flex items-center mr-4">
               <div className="flex flex-col items-center justify-center">
-                <h3 className="text-sm font-normal mt-2">{user?.username}</h3>
+                <h3 className="text-sm font-normal text-black mt-2">{user?.username}</h3>
                 {user?.role==='admin'&& <span><h3 className="px-2 py-0 rounded-full text-xs bg-green-500 ">{user?.role}</h3></span>}
               </div>
             </div>
             <button
               onClick={handleToggleTheme}
-              className="rounded-lg backdrop-blur-[2px] p-1 inline-block"
+              className="rounded-lg backdrop-blur-[2px] p-1 inline-block text-black"
             >
               {darkMode ? <Sun /> : <Moon size={24} />}
             </button>

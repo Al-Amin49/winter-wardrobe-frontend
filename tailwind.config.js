@@ -9,11 +9,12 @@ export default {
     themes: [
       {
         winterTheme:{
-          primary: '#6FB7F5',
-          secondary: '#FF9C33',
+          primary: '#D14343',
+          secondary: '#101840',
           accent: "#3A4256",
           neutral: "#3D4451",
           "base-100": "#FFFFFF",
+          //  FF9C33 rgb(209,67,67) 6FB7F5 D14343
         }
       }
     ]

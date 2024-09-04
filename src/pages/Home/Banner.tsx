@@ -1,111 +1,61 @@
-import { Swiper, SwiperSlide } from "swiper/react";
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
-import { useRef } from "react";
-import "../../styles/Banner.css";
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
-import banner1 from "../../assets/img/banner/banner.png";
-import banner2 from "../../assets/img/banner/2-removebg-preview.png";
-import banner3 from "../../assets/img/banner/21.png";
-import { Link } from "react-router-dom";
 import Container from "../../components/Container";
-import { useTypewriter, Cursor } from "react-simple-typewriter";
+import hero from "../../assets/img/herowinter.png";
+import shape from "../../assets/img/shape-1-1.svg";
+import { motion } from "framer-motion";
+import { Typewriter } from "react-simple-typewriter";
+import { Link } from "react-router-dom";
 
 const Banner = () => {
-  const progressCircle = useRef<SVGSVGElement>(null);
-  const progressContent = useRef<HTMLSpanElement>(null);
-
-  const [text] = useTypewriter({
-    words: [
-      "a full winter outfit",
-      "warm meals for a month",
-      "shelter for a night",
-    ],
-    loop: 0,
-    delaySpeed: 2000,
-  });
-
-  const bannerData = [
-    {
-      image: banner1,
-      title: "Your $50 Donation Provides ",
-      description: "Let's come together to spread the warmth of compassion and generosity.",
-
-    },
-    {
-      image: banner2,
-      title: "Your $50 Donation Provides ",
-      description: "Let's come together to spread the warmth of compassion and generosity.",
-
-    },
-    {
-      image: banner3,
-      title: "Your $50 Donation Provides ",
-      description: "Let's come together to spread the warmth of compassion and generosity.",
-
-    },
-  ]
   return (
-    <Container >
-      <Swiper
-        spaceBetween={30}
-        centeredSlides={true}
-        autoplay={{
-          delay: 4500,
-          disableOnInteraction: false,
-        }}
-        pagination={{
-          clickable: true,
-        }}
-        navigation={true}
-        modules={[Autoplay, Pagination, Navigation]}
-        className="mySwiper"
-      >
-        {
-          bannerData.map(data => (
-            <SwiperSlide >
-
-              <div className="mt-24 flex flex-col lg:flex-row justify-evenly  items-center lg:h-[450px] ">
-                <div className="">
-                  <h3 className="text-xl md:text-3xl w-[90%] mx-auto   font-extrabold text-primary">
-                    {data.title}
-                    <span className="text-secondary">
-                      {text}
-                      <Cursor cursorStyle="|" />
-                    </span>
-                  </h3>
-                  <p className="text-base md:text-lg lg:text-xl w-[80%] mx-auto   font-bold  py-3 lg:py-8">
-                    {data.description}
-                  </p>
-                  <Link to="/all-clothe">
-                    <button className="mb-4 lg:mb-0 btn btn-primary font-bold text-white">Donate Now</button>
-                  </Link>
-                </div>
-
-                <div>
-                  <img src={data.image} alt=""
-                    loading="lazy"
-
-                    className="w-[500px] h-[500px]"
+    <>
+      <div className="relative overflow-hidden">
+        <Container className="pt-28 lg:pt-32">
+          <div className="flex flex-col lg:flex-row items-center justify-between mx-4 lg:mx-0">
+            <div>
+              <h1 className="text-3xl lg:text-6xl text-secondary font-bold">
+                Empowering{" "}
+                <span className="text-primary">
+                  <Typewriter
+                    words={["hope", "future", "lives"]}
+                    loop={true} 
+                    cursor
+                    cursorStyle="|"
+                    typeSpeed={70}
+                    deleteSpeed={50}
+                    delaySpeed={1000}
                   />
-                </div>
-              </div>
-            </SwiperSlide>
-          ))
-        }
-
-
-
-        <div className="autoplay-progress" slot="container-end">
-          <svg viewBox="0 0 48 48" ref={progressCircle}>
-            <circle cx="24" cy="24" r="20"></circle>
-          </svg>
-          <span ref={progressContent}></span>
-        </div>
-      </Swiper>
-    </Container>
+                </span>{" "}
+                through giving
+              </h1>
+              <p className="text-accent my-5 lg:my-4">
+                Join us in a collective journey of compassion and impact as we
+                work hand in hand, transforming lives and nurturing hope around
+                the world.
+              </p>
+              <Link to="/all-clothe"><button className="btn btn-primary text-white">Donate Now</button></Link>
+            </div>
+            <div>
+              <img src={hero} alt="Hero" />
+            </div>
+          </div>
+        </Container>
+        {/* Background Shape with Framer Motion */}
+        <motion.img
+          src={shape}
+          alt="Background Shape"
+          className="absolute top-80 lg:top-28 left-2/3 transform -translate-x-1/2"
+          initial={{ x: 0 }}
+          animate={{
+            x: [0, 30, 0],
+          }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+      </div>
+    </>
   );
 };
 

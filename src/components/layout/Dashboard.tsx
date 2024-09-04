@@ -24,7 +24,7 @@ const Dashboard = () => {
         <div
           className={`fixed   inset-y-0 left-0 z-20 w-64 bg-primary transition-transform transform ${
             isSidebarOpen ? "translate-x-0 top-[70px] md:top-0" : "-translate-x-full"
-          } md:relative md:translate-x-0  md:h-auto`}
+          } md:relative md:translate-x-0  md:h-screen`}
         >
           <ul className="menu p-4 text-base">
             {
