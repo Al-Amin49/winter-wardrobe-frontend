@@ -1,6 +1,6 @@
 #  Winter Wardobe Frontend
 
-**Winter Wardrobe** is a clothes donation website designed to make giving back easier and more impactful.
+### Winter Wardrobe is a clothes donation website designed to make giving back easier and more impactful.
 
 **Live Site:** https://winter-wardrobe.netlify.app/
 
