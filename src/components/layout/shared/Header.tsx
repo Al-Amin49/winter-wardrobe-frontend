@@ -34,7 +34,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="z-10 absolute bg-gray-200 font-bold w-full max-w-screen-xl text-secno h-[70px] flex justify-between items-center px-4 ">
+    <div className="z-10 absolute bg-gray-200 font-bold w-full  text-secno h-[70px] flex justify-between items-center px-4 ">
       <div className="flex items-center">
         {/* Logo for Large and Small Screens */}
         <Link to="/">
