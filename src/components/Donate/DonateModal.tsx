@@ -5,31 +5,35 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
-// type TClothe={
-//   _id:string,
-//   title:string
-// }
-// type TUser={
-//   _id:string,
-//   username:string
+// Define the type for donation form data
+type TDonate = {
+  email: string; 
+  quantity: number; 
+};
 
-// }
-type TDonate={
-  userId:string,
-  clotheId:string,
-  quantity:number
-}
 const DonateModal = () => {
-  const userInfo = useAppSelector((state) => state.auth.userInfo) as { data: { user: { _id: string } } } | null;
-  const user = userInfo?.data.user;
-  const { id } = useParams();
-  const { data } = useGetSingleClothesQuery(id);
-  const { register, handleSubmit, reset } = useForm<TDonate>();
-  const {_id}= data.data;
-  const navigate = useNavigate();
-  const [addDonate] = useAddDonateMutation();
-  console.log("donate", addDonate);
+  const userInfo = useAppSelector(
+    (state) => state.auth.userInfo
+  ) as { data: { user: { _id: string; email: string } } } | null;
 
+  const user = userInfo?.data.user;
+
+  // Get the clothe ID from the URL params
+  const { id } = useParams<{ id: string }>();
+  
+  // Fetch the clothe details using the ID
+  const { data: clotheData } = useGetSingleClothesQuery(id);
+  
+  // Initialize form methods
+  const { register, handleSubmit, reset } = useForm<TDonate>();
+  
+  // Navigate function
+  const navigate = useNavigate();
+  
+  // Mutation hook for adding donation
+  const [addDonate] = useAddDonateMutation();
+
+  // Open and close modal functions
   const openModal = () => {
     const modal = document.getElementById("my_modal_1");
     if (modal instanceof HTMLDialogElement) {
@@ -38,6 +42,7 @@ const DonateModal = () => {
       console.error("Element is not a dialog");
     }
   };
+
   const closeModal = () => {
     const modal = document.getElementById("my_modal_1");
     if (modal instanceof HTMLDialogElement) {
@@ -45,38 +50,44 @@ const DonateModal = () => {
     }
   };
 
-  const onSubmit:SubmitHandler<TDonate> = async (data) => {
-    const donateData={
-      userId:user?._id || '',
-      clotheId: _id,
-      quantity:data.quantity
+  // Form submission handler
+  const onSubmit: SubmitHandler<TDonate> = async (data) => {
+    const donateData = {
+      email: user?.email,
+      quantity: data.quantity,
+       clotheId: clotheData?.data._id, 
+      userId: user?._id, 
+    };
+
+    try {
+      await addDonate(donateData).unwrap();
+      toast.success("Donation added successfully!");
+      reset();
+      closeModal();
+      navigate("/dashboard/admin-home");
+    } catch (error) {
+      toast.error("Failed to add donation");
     }
-    addDonate(donateData)
-    toast.success("Post added successfully");
-    reset();
-    console.log('data', data)
-    //close the modal
-    closeModal();
-    navigate("/dashboard/admin-home")
   };
 
+  // Navigate to login if the user is not logged in
   const navigateToLogin = () => {
     navigate("/login", { replace: true });
   };
-  
+
   return (
     <>
       {userInfo ? (
         <button
           onClick={openModal}
-          className="btn btn-xs  lg:btn-md btn-primary text-white font-bold"
+          className="btn btn-xs lg:btn-md btn-primary text-white font-bold"
         >
           Donate Now
         </button>
       ) : (
         <button
           onClick={navigateToLogin}
-          className="btn btn-xs  lg:btn-md btn-primary text-white font-bold"
+          className="btn btn-xs lg:btn-md btn-primary text-white font-bold"
         >
           Donate Now
         </button>
@@ -95,39 +106,27 @@ const DonateModal = () => {
             onSubmit={handleSubmit(onSubmit)}
             className="flex flex-col gap-2 w-full max-w-xs lg:max-w-lg"
           >
-            <div className=" mt-4">
+            <div className="mt-4">
               <div className="label">
-                <span className="label-text text-center">username</span>
+                <span className="label-text text-center">Username</span>
               </div>
 
               <input
                 type="text"
                 className="input input-bordered input-primary w-full max-w-xs my-2"
-                placeholder="username"
-                {...register('userId')}
-                value={user?._id}
+                placeholder="Username"
+                {...register("email")}
+                value={user?.email} 
                 readOnly
               />
-              <div className="label">
-                <span className="label-text">Clothe title</span>
-              </div>
-              <input
-                type="text"
-                className="input input-bordered input-primary w-full max-w-xs my-2"
-                placeholder="Clothe title"
-                {...register('clotheId')}
-                value={_id}
-                readOnly
-              />
-
               <div className="label">
                 <span className="label-text">Quantity</span>
               </div>
               <input
                 type="number"
                 className="input input-bordered input-primary w-full max-w-xs my-2"
-                placeholder="qunatity"
-                {...register('quantity')}
+                placeholder="Quantity"
+                {...register("quantity", { required: true })}
               />
             </div>
             <button
