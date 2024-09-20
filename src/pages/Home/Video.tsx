@@ -25,7 +25,7 @@ const Video = () => {
                 </video>
                 <div className="absolute h-full w-full rounded-3xl bg-black/40"></div>
                <div className='absolute'>
-               <p className=" text-xl text-secondary mb-2 font-bold tracking-tighter lg:text-3xl">
+               <p className=" text-xl text-white mb-2 font-bold tracking-tighter lg:text-3xl">
                 Join Our Community Charity Donation Center
                 </p>
                 <Link to="/all-clothe">
