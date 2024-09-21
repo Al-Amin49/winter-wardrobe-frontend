@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { TCommunityComment } from "@/types";
 import Container from "../../components/Container";
 import Loading from "../../components/Loading";
@@ -34,6 +35,7 @@ const PostDetails = () => {
         <div className="lg:col-span-4 order-2 lg:order-1">
           <h3 className="text-xl font-bold">Liked by</h3>
           <ul className="mt-4 space-y-2">
+            {/* // eslint-disable-next-line @typescript-eslint/no-explicit-any */}
             {post.likesUsers?.map((user: any) => (
               <li key={user.id} className="flex items-center space-x-3">
                 <img
