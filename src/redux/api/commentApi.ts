@@ -11,9 +11,10 @@ const commentApi= baseApi.injectEndpoints({
             providesTags:['comments']
         }),
         addComments:builder.mutation({
-            query:(postId)=>({
+            query:({postId, content})=>({
                 url:`/communities/${postId}/comments`,
                 method:"POST",
+                body: { content },
             }),
             invalidatesTags:['comments']
         }),
