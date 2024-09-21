@@ -7,7 +7,7 @@ type TClotheProps = {
 
 const ClotheCard = ({ clothe }: TClotheProps) => {
   return (
-    <div className="w-full max-w-sm mx-auto my-4 bg-white shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105">
+    <div className="w-full max-w-sm  my-4 bg-white shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105 mx-4 lg:mx-0 ">
       {/* Image Section with hover effect */}
       <img
         src={clothe.image}

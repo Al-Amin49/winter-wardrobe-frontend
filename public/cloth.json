@@ -1,0 +1,53 @@
+[
+    {
+      "title": "Cozy Winter Scarf",
+      "category": "Scarves",
+      "size": ["One Size"],
+      "description": "A thick, knitted scarf to keep you warm on cold days.",
+      "image": "https://i.ibb.co.com/SVjz9XP/scarves-removebg-preview.png",
+      "giveaway": []
+    },
+    {
+      "title": "Thermal Gloves",
+      "category": "Gloves",
+      "size": ["S", "M", "L"],
+      "description": "Perfect for keeping hands warm during the winter.",
+      "image": "https://i.ibb.co.com/TgRnMQ9/glvoes-removebg-preview.png",
+      "giveaway": []
+    },
+    {
+      "title": "Fleece Lined Hoodie",
+      "category": "Hoodies",
+      "size": ["S", "M", "L", "XL"],
+      "description": "A soft, fleece-lined hoodie perfect for layering in winter.",
+      "image": "https://i.ibb.co.com/K0VN4Yf/hoodie-removebg-preview.png",
+      "giveaway": []
+    },
+  
+    {
+      "title": "Insulated Winter Coat",
+      "category": "Coats",
+      "size": ["M", "L", "XL", "XXL"],
+      "description": "A heavy insulated coat that keeps the cold out.",
+      "image": "https://i.ibb.co.com/F5WLkqf/coats-removebg-preview.png",
+      "giveaway": []
+    },
+   
+    {
+      "title": "Winter Earmuffs",
+      "category": "Earmuffs",
+      "size": ["One Size"],
+      "description": "Stylish and warm earmuffs for protection against the cold wind.",
+      "image": "https://i.ibb.co.com/xJ7qtR1/earmuff-removebg-preview.png",
+      "giveaway": []
+    },
+    {
+      "title": "Thick Winter Blanket",
+      "category": "Blankets",
+      "size": ["One Size"],
+      "description": "A large, cozy blanket for staying warm during the coldest nights.",
+      "image": "https://i.ibb.co.com/vzG4mhx/blanktest-removebg-preview.png",
+      "giveaway": []
+    }
+  ]
+  

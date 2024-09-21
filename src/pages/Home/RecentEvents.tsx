@@ -26,7 +26,7 @@ const RecentEvents = () => {
         </div>
         
       
-        <div className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mx-4 lg:mx-0">
           {/* Sample images */}
           <img src="https://rb.gy/hwg20c" alt="Event 1" className="w-full h-auto rounded-[50%] shadow-lg" />
           <img src="https://rb.gy/l8i9im" alt="Event 2" className="w-full h-auto rounded-lg shadow-lg" />

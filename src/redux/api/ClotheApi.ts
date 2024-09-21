@@ -3,8 +3,8 @@ import { baseApi } from "./baseApi";
 const clotheApi= baseApi.injectEndpoints({
     endpoints:(builder)=>({
         getAllClothes:builder.query({
-            query:()=>({
-                url:'/clothes',
+            query:({ page = 1, limit = 5 })=>({
+                url:`/clothes?page=${page}&limit=${limit}`,
                 method:'GET',
             }),
             providesTags:['clothes']

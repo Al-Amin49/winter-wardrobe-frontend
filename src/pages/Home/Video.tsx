@@ -26,13 +26,13 @@ const Video = () => {
                 <div className="absolute h-full w-full rounded-3xl bg-black/40"></div>
                <div className='absolute'>
                <p className=" text-xl text-white mb-2 font-bold tracking-tighter lg:text-3xl">
-                Join Our Community Charity Donation Center
+                Become a Volunteer
                 </p>
-                <Link to="/all-clothe">
+                <Link to="/volunteer">
                 <button
                 className="btn btn-primary text-white"
               >
-                Donate Now
+               Register Now
               </button>
                 </Link>
                </div>

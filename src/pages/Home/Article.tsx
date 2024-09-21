@@ -39,7 +39,7 @@ type TArticle={
       initial={motionContainer.initial}
       whileInView={motionContainer.whileInView}
       transition={motionContainer.transition}
-       className="grid grid-cols-1 md:grid-cols-3 place-items-center gap-4">
+       className="grid grid-cols-1 md:grid-cols-3 place-items-center gap-4 mx-4 lg:mx-0">
         {articles.map((article:TArticle) => (
           <div key={article.id} className="bg-white shadow-lg rounded-lg overflow-hidden">
             <img src={article.image} alt={article.title} className="w-full h-48 object-cover" />
