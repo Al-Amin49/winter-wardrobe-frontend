@@ -12,4 +12,9 @@
     padding: 0;
   
   }
+  @layer utilities {
+    .clip-banner-curve {
+      clip-path: ellipse(100% 70% at 50% 30%);
+    }
+  }
 }

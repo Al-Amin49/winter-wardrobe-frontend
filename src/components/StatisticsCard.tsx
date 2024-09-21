@@ -10,7 +10,7 @@ const StatisticsCard = () => {
   ];
 
   return (
-    <div className=" bg-secondary p-10">
+    <div className="bg-gradient-to-r from-orange-500 to-gray-400  p-10">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-screen-lg mx-auto px-4">
         {stats.map((stat, index) => (
           <StatItem key={index} number={stat.number} label={stat.label} />
