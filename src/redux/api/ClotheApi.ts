@@ -3,7 +3,7 @@ import { baseApi } from "./baseApi";
 const clotheApi= baseApi.injectEndpoints({
     endpoints:(builder)=>({
         getAllClothes:builder.query({
-            query:({ page = 1, limit = 5 })=>({
+            query:({ page = 1, limit = 6 })=>({
                 url:`/clothes?page=${page}&limit=${limit}`,
                 method:'GET',
             }),
