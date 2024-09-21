@@ -17,6 +17,13 @@ const donateApi = baseApi.injectEndpoints({
       }),
       providesTags: ["donate"],
     }),
+    getDonationHistory: builder.query({
+      query: (email) => ({
+        url: `/donate/user/${email}`,
+        method: "GET",
+      }),
+      providesTags: ["donate"],
+    }),
     getDonationsByCategory: builder.query({
       query: () => ({
         url: `/donate/category`,
@@ -55,4 +62,5 @@ export const {
   useGetDonationsByCategoryQuery,
   useGetRecentDonationQuery,
   useGetAllDonationQuery,
+  useGetDonationHistoryQuery
 } = donateApi;

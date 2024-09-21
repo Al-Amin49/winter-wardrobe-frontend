@@ -64,7 +64,14 @@ const DonateModal = () => {
       toast.success("Donation added successfully!");
       reset();
       closeModal();
-      navigate("/dashboard/admin-home");
+      if(user?.role==='user') {
+        navigate("/dashboard/donation-history");
+      }
+      else{
+        navigate("/dashboard/adminhome");
+
+      }
+      
     } catch (error) {
       toast.error("Failed to add donation");
     }
