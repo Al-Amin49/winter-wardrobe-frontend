@@ -14,7 +14,7 @@ type TDonate = {
 const DonateModal = () => {
   const userInfo = useAppSelector(
     (state) => state.auth.userInfo
-  ) as { data: { user: { _id: string; email: string } } } | null;
+  ) as { data: { user: { _id: string; email: string , role:string} } } | null;
 
   const user = userInfo?.data.user;
 

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useAppSelector } from "../../../redux/hook";
 import { useGetDonationHistoryQuery } from "../../../redux/api/donateApi";
 
@@ -26,7 +27,7 @@ const DonationHistory = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {data?.data?.map((donation) => (
+                            {data?.data?.map((donation:any) => (
                                 <tr key={donation._id} className="hover:bg-gray-50">
                                     <td className="py-2 px-4 border-b text-sm">{donation.clotheId.title}</td>
                                     <td className="py-2 px-4 border-b text-sm">{donation.quantity}</td>
