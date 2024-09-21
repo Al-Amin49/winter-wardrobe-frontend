@@ -6,7 +6,7 @@ import logo from '../../../assets/img/logoWinter.png';
 const Footer = () => {
   return (
     <>
-      <footer className="bg-gray-500 pt-10 px-16 md:px-10 pb-5 mt-20">
+      <footer className="bg-gray-500 pt-10 px-16 md:px-10 pb-5 mt-20 clip-path-r">
         <Container className="mt-5">
           <section className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 text-[--color4] pb-8">
             <div>

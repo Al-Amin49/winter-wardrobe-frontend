@@ -1,48 +1,72 @@
 import Container from "../../components/Container";
 import { useGetSingleClothesQuery } from "../../redux/api/ClotheApi";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Loading from '../../components/Loading';
 import { TClothe } from "../../types";
 import DonateModal from "../../components/Donate/DonateModal";
+import { ArrowLeft } from "lucide-react";
+
 const ClotheDetails = () => {
   const { id } = useParams();
   const { data, isLoading } = useGetSingleClothesQuery(id);
-  console.log(data?.data);
+
   if (isLoading) {
     return <Loading />;
   }
+
   const { image, title, description, size, category } = data.data as TClothe;
 
   return (
     <Container>
-      <div className="pt-20 pb-5">
-        <div className=" flex  flex-col lg:flex-row justify-center m-4 lg:m-0 lg:justify-around items-center ">
-          <div>
-            <img src={image} className="w-[70%]" alt="" />
+     
+
+      <section className='bg-indigo-50 py-10'>
+        <div className='container m-auto py-10 px-6'>
+          <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
+            <main className='flex flex-col'>
+         
+              <div className='bg-white p-6 rounded-lg shadow-md mb-6 flex justify-between'>
+                
+                <div className='text-gray-500 mb-4'>
+                <div className='flex items-center text-indigo-500 hover:text-indigo-600 mb-4'>
+            <ArrowLeft className='mr-2 ' />
+            <Link to="/all-clothe"><span>Back to All Clothes</span></Link>
           </div>
-          <div className="border shadow-lg p-4">
-            <h2 className="space-x-2">
-              <span className="text-primary font-bold text-3xl">{title}</span>
-              <div className="badge badge-secondary">{category}</div>
-            </h2>
-            <p className="text-xl font-bold py-8">{description}</p>
-            <span className=" flex justify-between items-center text-secondary font-bold">
-              Available Sizes:
-              {size.map((size) => (
-                <li
-                  key={size}
-                  className="list-none bg-primary p-2 rounded-lg text-white "
-                >
-                  {size}
-                </li>
-              ))}
-            </span>
-            <div className="text-center pt-10">
-              <DonateModal/>
-            </div>
+                <h1 className='text-3xl font-bold '>{title}</h1>
+                  <span className='badge badge-secondary'>{category}</span>
+                </div>
+                <DonateModal/>
+              </div>
+
+              <div className='bg-white p-6 rounded-lg shadow-md'>
+                <h3 className='text-indigo-800 text-lg font-bold mb-6'>Description</h3>
+                <p className='mb-4'>{description}</p>
+
+                <h3 className='text-indigo-800 text-lg font-bold mb-2'>Available Sizes</h3>
+                <ul className='flex space-x-2'>
+                  {size.map((s) => (
+                    <li key={s} className='list-none bg-primary p-2 rounded-lg text-white'>
+                      {s}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </main>
+
+            {/* Image Column */}
+            <aside>
+              <div className='bg-white p-6 rounded-lg shadow-md'>
+                <h3 className='text-xl font-bold mb-6'>Image Preview</h3>
+                <div className='flex justify-center'>
+                  <img src={image} className='w-full max-w-xs' alt={title} />
+                </div>
+              </div>
+
+            
+            </aside>
           </div>
         </div>
-      </div>
+      </section>
     </Container>
   );
 };

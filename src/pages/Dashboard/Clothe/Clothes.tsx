@@ -32,7 +32,7 @@ const Clothes = () => {
     <div className="p-4 lg:px-8">
       <div className="flex flex-col lg:flex-row justify-between items-center mb-4">
         <h2 className="text-xl lg:text-2xl font-semibold">
-          Total clothes: {data?.data.length}
+          Total clothes: {data?.data?.clothes?.length}
         </h2>
         <Link to="/dashboard/create-winter-clothe">
           <button className="bg-primary text-white px-4 py-2 rounded-lg shadow hover:bg-primary-dark font-bold">
@@ -53,7 +53,7 @@ const Clothes = () => {
             </tr>
           </thead>
           <tbody className="text-gray-600 text-sm font-light">
-            {data?.data.map((clothe: TClothe, index: number) => (
+            {data?.data?.clothes?.map((clothe: TClothe, index: number) => (
               <tr
                 key={clothe._id}
                 className="border-b border-gray-200 hover:bg-gray-100 hover:shadow-lg"

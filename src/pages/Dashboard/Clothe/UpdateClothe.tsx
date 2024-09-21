@@ -5,15 +5,15 @@ import {
 import { SubmitHandler, useForm } from "react-hook-form";
 import { FaEdit } from "react-icons/fa";
 import { toast } from "react-toastify";
-import Loading from '../../../components/Loading';
-import {TClothe} from '../../../types';
-type TUpdateProps={
-  clotheId:string
-}
-const UpdateClothe = ({ clotheId }:TUpdateProps) => {
+import Loading from "../../../components/Loading";
+import { TClothe } from "../../../types";
+type TUpdateProps = {
+  clotheId: string;
+};
+const UpdateClothe = ({ clotheId }: TUpdateProps) => {
   const [updateClothe] = useUpdateClothesMutation();
   const { data, isLoading } = useGetSingleClothesQuery(clotheId);
-  console.log('getSingle',data)
+  console.log("getSingle", data);
 
   const { register, handleSubmit, reset } = useForm<TClothe>();
 
@@ -31,7 +31,7 @@ const UpdateClothe = ({ clotheId }:TUpdateProps) => {
       id: clotheId,
       body: data,
     });
-   
+
     toast.success(`${data.title} Updated`);
     reset();
     //close the modal
@@ -41,9 +41,8 @@ const UpdateClothe = ({ clotheId }:TUpdateProps) => {
     }
   };
 
- 
-  if(isLoading){
-    return <Loading/>
+  if (isLoading) {
+    return <Loading />;
   }
 
   return (
@@ -87,13 +86,21 @@ const UpdateClothe = ({ clotheId }:TUpdateProps) => {
                 {...register("category")}
                 className="input input-bordered w-full max-w-xs"
               />
-              <input
-                defaultValue={data?.data.size}
-                type="text"
-                placeholder="Size"
-                {...register("size")}
-                className="input input-bordered w-full max-w-xs"
-              />
+              <select
+              defaultValue={data?.data?.size}
+                {...register("size", { required: true })}
+                multiple
+                className="input input-bordered w-full h-24"
+              >
+                <option value="S">Small</option>
+                <option value="M">Medium</option>
+                <option value="L">Large</option>
+                <option value="XL">Extra Large</option>
+              </select>
+              <p className="text-gray-500 text-xs">
+                Hold down the Ctrl (Windows) or Command (Mac) button to select
+                multiple sizes.
+              </p>
               <input
                 defaultValue={data?.data.image}
                 type="text"
