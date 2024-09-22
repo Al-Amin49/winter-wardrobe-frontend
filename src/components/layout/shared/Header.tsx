@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { Menu, Moon, Sun, X } from "lucide-react";
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
@@ -6,11 +6,10 @@ import logo from "../../../assets/img/logoWinter.png";
 import { useAppDispatch, useAppSelector } from "../../../redux/hook";
 import { logout } from "../../../redux/features/authSlice";
 import { toggleTheme } from "../../../redux/features/themeSlice";
-// import smallLogo from '../../../assets/img/smallLogo.png';
+import useUserInfo from "../../../components/hooks/useUserInfo";
 
 const Navbar = () => {
-  const userInfo: any = useAppSelector((state) => state.auth.userInfo);
-  const user = userInfo?.data?.user;
+const user= useUserInfo();
 
   const dispatch = useAppDispatch();
   const { darkMode } = useAppSelector((store) => store.theme);
@@ -45,14 +44,12 @@ const Navbar = () => {
 
       {/* Desktop Navigation */}
       <ul className="hidden lg:flex md:space-x-2 lg:space-x-4 md:items-center ">
-        <NavLink to="/" className="">
-          Home
-        </NavLink>
-        <NavLink to="/all-clothe">All Clothes</NavLink>
-        <NavLink to="/community">Community</NavLink>
-        <NavLink to="/Volunteer">Volunteer</NavLink>
-        <NavLink to="/leaderboard">Leaderboard</NavLink>
-        <NavLink to="/about-us">About Us</NavLink>
+        <NavLink className={({ isActive }) => (isActive ? 'text-primary' : 'hover:text-blue-600')} to="/" > Home</NavLink>
+        <NavLink className={({ isActive }) => (isActive ? 'text-primary' : 'hover:text-blue-600')} to="/all-clothe">All Clothes</NavLink>
+        <NavLink className={({ isActive }) => (isActive ? 'text-primary' : 'hover:text-blue-600')} to="/community">Community</NavLink>
+        <NavLink className={({ isActive }) => (isActive ? 'text-primary' : 'hover:text-blue-600')} to="/Volunteer">Volunteer</NavLink>
+        <NavLink className={({ isActive }) => (isActive ? 'text-primary' : 'hover:text-blue-600')} to="/leaderboard">Leaderboard</NavLink>
+        <NavLink className={({ isActive }) => (isActive ? 'text-primary' : 'hover:text-blue-600')} to="/about-us">About Us</NavLink>
       </ul>
 
       {/* TOGGLE THEME */}
@@ -101,7 +98,7 @@ const Navbar = () => {
         )}
         <div className="flex items-center mr-4">
           <div className="flex flex-col items-center justify-center">
-            <h3 className="text-sm font-normal mt-2">{user?.username}</h3>
+            <h3 className="text-sm font-normal mt-2 hidden md:block">{user?.username}</h3>
             {user?.role === "admin" && (
               <span>
                 <h3 className="px-2 py-0 rounded-full text-xs bg-green-500 ">
@@ -130,21 +127,11 @@ const Navbar = () => {
             : "ease-in-out w-[60%] duration-500 fixed top-0 bottom-0 left-[-100%]"
         }
       >
-        <NavLink to="/" onClick={closeNav} className="">
-          Home
-        </NavLink>
-        <NavLink onClick={closeNav} to="/all-clothe">
-          All Winter Clothes
-        </NavLink>
-        <NavLink onClick={closeNav} to="/community">
-          Community
-        </NavLink>
-        <NavLink onClick={closeNav} to="/about-us">
-          About Us
-        </NavLink>
-        <NavLink onClick={closeNav} to="/Volunteer">
-          Volunteer
-        </NavLink>
+        <NavLink className={({ isActive }) => (isActive ? 'text-primary' : 'hover:text-blue-600')}   to="/" onClick={closeNav} > Home</NavLink>
+        <NavLink className={({ isActive }) => (isActive ? 'text-primary' : 'hover:text-blue-600')} onClick={closeNav} to="/all-clothe">   All Winter Clothes</NavLink>
+        <NavLink className={({ isActive }) => (isActive ? 'text-primary' : 'hover:text-blue-600')} onClick={closeNav} to="/community">Community</NavLink>
+        <NavLink className={({ isActive }) => (isActive ? 'text-primary' : 'hover:text-blue-600')} onClick={closeNav} to="/about-us">About Us</NavLink>
+        <NavLink className={({ isActive }) => (isActive ? 'text-primary' : 'hover:text-blue-600')} onClick={closeNav} to="/Volunteer">    Volunteer</NavLink>
         <Link to="/login">
           <button className="btn btn-sm btn-primary  text-white">Login</button>
         </Link>
