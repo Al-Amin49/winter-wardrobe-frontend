@@ -1,3 +1,4 @@
+import useUserInfo from "../../components/hooks/useUserInfo";
 import { useAddCommunityPostMutation } from "../../redux/api/communityPostApi";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "react-toastify";
@@ -7,6 +8,7 @@ type TAddPost={
     content:string
 }
 const AddPost = () => {
+  const user= useUserInfo()
   const [addData]= useAddCommunityPostMutation()
   const { register, handleSubmit, reset } = useForm<TAddPost>();
 
@@ -19,8 +21,13 @@ const AddPost = () => {
     }
   };
   const onSubmit: SubmitHandler<TAddPost> = async (data) => {
-    console.log(data);
+    if(!user){
+      toast.error("Please login to add the post");
+      return;
+    }
+
     addData(data)
+
     toast.success('Post added successfully');
     reset();
     //close the modal

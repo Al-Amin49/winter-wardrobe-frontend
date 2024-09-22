@@ -17,4 +17,5 @@ export type TCommunityPost = {
   likes: number;
   author: TCommunityUser;
   likedBy?: TCommunityUser[];
+  createdAt:string
 };
