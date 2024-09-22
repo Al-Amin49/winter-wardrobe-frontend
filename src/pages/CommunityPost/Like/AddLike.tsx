@@ -16,7 +16,7 @@ const AddLike = ({ post }: AddLikeProps) => {
   const singleUser = userInfo?.data?.user;
 
   const [toggleLike, { isLoading }] = useToggleLikeMutation();
-  const [localLikes, setLocalLikes] = useState(post.likes); 
+  const [localLikes, setLocalLikes] = useState(post?.likes); 
 
   // Check if the logged-in user has already liked the post
   const [liked, setLiked] = useState(
@@ -59,7 +59,7 @@ const AddLike = ({ post }: AddLikeProps) => {
     <button
       onClick={handleLike}
       disabled={isLoading}
-      className={`flex items-center font-semibold transition-colors duration-200 ${
+      className={`flex items-center font-semibold transition-colors duration-200  ${
         liked ? "text-green-500" : "text-gray-600 hover:text-red-500"
       }`} 
     >

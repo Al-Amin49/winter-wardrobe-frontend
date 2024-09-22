@@ -7,17 +7,19 @@ import { useParams } from "react-router-dom";
 import { Heart, MessageCircle } from "lucide-react";
 import { useGetAllCommentsQuery } from "../../redux/api/commentApi";
 import AddComment from "./Comment/AddComment";
+import { useGetAllLikesQuery } from "../../redux/api/likeApi";
 
 const PostDetails = () => {
   const { id } = useParams();
   const { data, isLoading: postLoading } = useGetSinglePostQuery(id);
   const { data: commentsData, isLoading: commentsLoading } =
     useGetAllCommentsQuery(id);
+    const {data:allLikes}= useGetAllLikesQuery(id)
 
   if (postLoading || commentsLoading) {
     return <Loading />;
   }
-
+  const likesUsers = allLikes?.data || [];
   const post = data?.data;
 
   if (!post) {
@@ -29,22 +31,22 @@ const PostDetails = () => {
 
   return (
     <Container>
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mt-5">
 
         {/* Liked by section */}
-        <div className="lg:col-span-4 order-2 lg:order-1">
+        <div className="lg:col-span-4 order-2 lg:order-1 mx-4 lg:mx-0">
           <h3 className="text-xl font-bold">Liked by</h3>
           <ul className="mt-4 space-y-2">
             {/* // eslint-disable-next-line @typescript-eslint/no-explicit-any */}
-            {post.likesUsers?.map((user: any) => (
+            {likesUsers?.map((user: any) => (
               <li key={user.id} className="flex items-center space-x-3">
                 <img
                   src={user.profile}
-                  alt={`${user.username} profile`}
+                  alt={`${user?.username} profile`}
                   className="h-10 w-10 rounded-full border-2 border-gray-300"
                 />
                 <p className="text-sm font-medium text-gray-700">
-                  {user.username}
+                  {user?.username}
                 </p>
               </li>
             ))}
@@ -52,8 +54,8 @@ const PostDetails = () => {
         </div>
 
         {/* Post details (single post) */}
-        <div className="lg:col-span-8 order-1 lg:order-2">
-          <div className="bg-white p-6 border border-gray-300 rounded-lg shadow-md transition hover:shadow-lg">
+        <div className="lg:col-span-8 order-1 lg:order-2 ">
+          <div className="bg-white p-6 border border-gray-300 rounded-lg shadow-md transition hover:shadow-lg mx-4 lg:mx-0">
             <div className="flex items-center space-x-4 mb-4">
               <img
                 src={author?.profile}
@@ -85,7 +87,7 @@ const PostDetails = () => {
         </div>
 
         {/* All comments */}
-        <div className="lg:col-span-8 lg:col-start-5 order-3">
+        <div className="lg:col-span-8 lg:col-start-5 order-3 mx-4 lg:mx-0 ">
           <h3 className="text-lg font-semibold text-gray-800">
             Comments: {comments.length}
           </h3>

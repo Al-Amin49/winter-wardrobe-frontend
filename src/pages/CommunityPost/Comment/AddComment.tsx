@@ -28,7 +28,7 @@ const AddComment = () => {
       }
     }
     return (
-        <div className="flex space-x-5">
+        <div className="flex space-x-5 mx-4 lg:mx-0">
             <form 
            onSubmit={handleSubmit(onSubmit)}
             >
