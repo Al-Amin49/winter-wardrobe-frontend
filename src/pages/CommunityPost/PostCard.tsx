@@ -1,8 +1,9 @@
-import { Heart, MessageCircle } from "lucide-react";
+import {  MessageCircle } from "lucide-react";
 import Loading from "../../components/Loading";
 import { useGetAllCommunityPostQuery } from "../../redux/api/communityPostApi";
 import { Link } from "react-router-dom";
 import { TCommunityPost } from "@/types";
+import AddLike from "./Like/AddLike";
 
 const PostCard = () => {
   const { data, isLoading } = useGetAllCommunityPostQuery("");
@@ -33,14 +34,12 @@ const PostCard = () => {
               {post.content}
             </p>
             <div className="flex items-center space-x-6">
-              <button className="flex items-center font-semibold text-gray-600 hover:text-red-500 transition-colors duration-200">
-                <Heart className="mr-2" /> <span>{post?.likes}</span>
-              </button>
+             <AddLike post={post}/>
               <Link
                 to={`/community/${post._id}`}
                 className="flex items-center font-semibold text-gray-600 hover:text-blue-500 transition-colors duration-200"
               >
-                <MessageCircle className="mr-2" /> {post?.comments.length} Comments
+                <MessageCircle className="mr-2" /> {post?.comments?.length} Comments
               </Link>
             </div>
           </div>
